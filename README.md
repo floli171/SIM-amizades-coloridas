@@ -2,7 +2,7 @@
 
 
 REGRAS
-#1 Os ficheiros aqui colocados não devem conter erros
+#1 Os ficheiros aqui colocados não devem conter erros <br>
 #2 na zona das ACTUALIZAÇÕES devem descrever o que foi adicionado ao programa
   formato:
     data
