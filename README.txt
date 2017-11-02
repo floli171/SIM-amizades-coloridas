@@ -16,3 +16,7 @@ REGRAS
 
 
 ACTUALIZAÇÕES
+
+  2-11/2018
+  melhoria da interface (index.php)
+  Floli
