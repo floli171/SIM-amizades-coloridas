@@ -31,22 +31,23 @@ if(isset($_GET["operacao"])) {
 		<meta charset="UTF-8">
 	</head>
 
-	<body>
+	<body style="font-family:'Verdana'">
+
 		<table width="1000px" height="700px" border="1" align="center" >
 			<col width="150">
  			<col width="600">
 			<tr>
-				<th colspan="2"> 
+				<th height="80" colspan="2"> 
 					<a href="https://www.fct.unl.pt/" target="_blank""><img src="logo.png" height="50" width="120" align="left"></a>
 					<h1 align="center"><strong> HOSPITAL SIM - FCT </strong></h1> 
 				</th>
 			</tr>
 
 			<tr>
-				<td width:"150" valign="top">
-					<table width="150" border="0">
+				<td width="140" valign="top">
+					<table width="140" border="0">
 						<tr>
-							<td bgcolor="99FF33">
+							<td bgcolor="#99FF33">
 								<p><strong>Op&ccedil;&otilde;es</strong></p>
 							</td>
 						</tr>
@@ -91,7 +92,7 @@ if(isset($_GET["operacao"])) {
 						</table>
 				</td>
 
-				<td align="center">
+				<td width="860" align="center">
 					<?php 
 					if (isset($_GET['operacao']))
 					{
@@ -128,7 +129,7 @@ if(isset($_GET["operacao"])) {
 			</tr>
 
 			<tr>
-				<td bgcolor="909090" colspan="2" align="center"> 
+				<td height="30" bgcolor="909090" colspan="2" align="center"> 
 					&#169;Alunos 2017/18
 				</td>
 			</tr>
