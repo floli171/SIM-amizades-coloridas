@@ -6,15 +6,41 @@ if(isset($_GET["operacao"])) {
 		$_SESSION["authuser"]=0;
 		$_SESSION["username"]=$_POST["user"];
 		$_SESSION["userpass"]=$_POST["pass"];
-
-		if (($_SESSION["username"]== "Joe") AND ($_SESSION["userpass"]== "12345")) {
+		
+		$link = mysqli_connect('localhost', 'root', '', 'SIM') or die(mysqli_error($link));
+		
+		/*if($link->connect_errno > 0){
+			die('Unable to connect to database [' . $db->connect_error . ']');
+			}*/
+		
+		$query_user = 'SELECT * FROM Users WHERE (Username = "'.$_POST["user"].'")';		
+		$get_user = mysqli_query($link, $query_user) or die(mysqli_error($link));
+		$user = mysqli_fetch_array($get_user);
+		$number = mysqli_num_rows($get_user);
+		
+		//$pass = mysqli_fetch_array($get_pass);
+		if($number > 0)
+		{
+			if ($_SESSION["userpass"] == $user['Password'])
+			{
+				$_SESSION["authuser"]=1;
+			}
+			else {
+				$_SESSION["authuser"]=0;
+				exit();
+			}
+		}
+	}
+	
+	/*if($number >= 0)
+		{
+			
 			$_SESSION["authuser"]=1;
 		}
 		else {
 			$_SESSION["authuser"]=0;
 			exit();
-		}
-	}
+		}*/
 }
 if(isset($_GET["operacao"])) {
 	if($_GET["operacao"] == 'logout') {
