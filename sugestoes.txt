@@ -1,3 +1,5 @@
 SUGESTOES:
 
 colocar a opçao de registar caso a a pw e utilizador sejam invalidos
+
+Colocar opção só para alguns utilizadores (Oliveira, Duque, Catarino) de apagar entradas da base e dados
