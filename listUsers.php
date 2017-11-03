@@ -2,7 +2,7 @@
 $pageNumber = $_GET["pageNumber"]; /*número de paginação*/
 $pageSize = $_GET["pageSize"]; /*número de utilizadores/linhas*/
 
-$link = mysqli_connect('localhost', 'root', '', 'SIM') or die(mysqli_error($link));
+$connect = mysqli_connect('localhost', 'root', '', 'mysql') or die(mysqli_error($connect));
 
 //$number = mysqli_num_rows($get_user);
 ?>
@@ -19,7 +19,7 @@ $link = mysqli_connect('localhost', 'root', '', 'SIM') or die(mysqli_error($link
 					
 					$i=$n+1;
 					$query_id = 'SELECT * FROM Users WHERE (ID = "'.$i.'")';
-					$get_id = mysqli_query($link, $query_id) or die(mysqli_error($link));
+					$get_id = mysqli_query($connect, $query_id) or die(mysqli_error($connect));
 					$id_info = mysqli_fetch_array($get_id);
 					$name=$id_info['Name'];
 					$date=$id_info['Creation_Date'];

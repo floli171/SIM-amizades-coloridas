@@ -1,0 +1,3 @@
+SUGESTOES:
+
+colocar a opçao de registar caso a a pw e utilizador sejam invalidos

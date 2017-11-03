@@ -7,14 +7,14 @@ if(isset($_GET["operacao"])) {
 		$_SESSION["username"]=$_POST["user"];
 		$_SESSION["userpass"]=$_POST["pass"];
 		
-		$link = mysqli_connect('localhost', 'root', '', 'SIM') or die(mysqli_error($link));
+		$connect = mysqli_connect('localhost', 'root', '', 'mysql') or die(mysqli_error($connect));
 		
 		/*if($link->connect_errno > 0){
 			die('Unable to connect to database [' . $db->connect_error . ']');
 			}*/
 		
 		$query_user = 'SELECT * FROM Users WHERE (Username = "'.$_POST["user"].'")';		
-		$get_user = mysqli_query($link, $query_user) or die(mysqli_error($link));
+		$get_user = mysqli_query($connect, $query_user) or die(mysqli_error($connect));
 		$user = mysqli_fetch_array($get_user);
 		$number = mysqli_num_rows($get_user);
 		$pass = $user['Password'];
@@ -25,22 +25,13 @@ if(isset($_GET["operacao"])) {
 			{
 				$_SESSION["authuser"]=1;
 			}
-			/*else {
-				$_SESSION["authuser"]=0;
-				exit();
-			}*/
+			// else {
+			// 	$_SESSION["authuser"]=0;
+			// 	exit();
+			// }
 		}
 	}
 	
-	/*if($number >= 0)
-		{
-			
-			$_SESSION["authuser"]=1;
-		}
-		else {
-			$_SESSION["authuser"]=0;
-			exit();
-		}*/
 }
 if(isset($_GET["operacao"])) {
 	if($_GET["operacao"] == 'logout') {
@@ -110,9 +101,14 @@ if(isset($_GET["operacao"])) {
 									}
 								}
 								else {
-									echo "<a href='http://localhost/SIM/index.php?operacao=home'></a>";
+									echo "<a href='http://localhost/SIM/index.php?operacao=showRegistry'>Registar</a>";
 								}
 								?>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								
 							</td>
 						</tr>
 						</table>
@@ -142,6 +138,14 @@ if(isset($_GET["operacao"])) {
 
 						 case 'listUsers' :
 						 	include 'listUsers.php';
+						 	break;
+
+						 case 'showRegistry' :
+						 	include 'showRegistry.php';
+						 	break;
+
+						 case 'registry' :
+						 	include 'registry.php';
 						 	break;
 							
 						default:
