@@ -1,4 +1,4 @@
-# SIM-amizades-coloridas
+﻿# SIM-amizades-coloridas
 
 
 REGRAS
@@ -19,4 +19,4 @@ ACTUALIZAÇÕES
 
   2-11/2018
   melhoria da interface (index.php)
-  Floli
+  Floli 03-11-2018 Acabei o registo e comentei o código. Falt codificar as passes com MD para acabar  aula prática 5. Fiz uma nova sugestão André
