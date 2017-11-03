@@ -17,18 +17,18 @@ if(isset($_GET["operacao"])) {
 		$get_user = mysqli_query($link, $query_user) or die(mysqli_error($link));
 		$user = mysqli_fetch_array($get_user);
 		$number = mysqli_num_rows($get_user);
-		
+		$pass = $user['Password'];
 		//$pass = mysqli_fetch_array($get_pass);
 		if($number > 0)
 		{
-			if ($_SESSION["userpass"] == $user['Password'])
+			if ($_SESSION["userpass"] == $pass)
 			{
 				$_SESSION["authuser"]=1;
 			}
-			else {
+			/*else {
 				$_SESSION["authuser"]=0;
 				exit();
-			}
+			}*/
 		}
 	}
 	
