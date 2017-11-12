@@ -53,7 +53,7 @@ $connect = mysqli_connect('localhost', 'root', '', 'mysql') or die(mysqli_error(
 
 	echo "<a href='http://localhost/SIM/index.php?operacao=listUsers&pageNumber=$pnd&pageSize=10'>Anterior </a>"; //voltar para trás em progresso
 
-	echo "<a href='http://localhost/SIM/index.php?operacao=listUsers&pageNumber=$png&pageSize=10'>Próximos </a>"; //andar para a frente em progresso
+	echo "<a href='http://localhost/SIM/index.php?operacao=listUsers&pageNumber=$png&pageSize=10'>Próximo </a>"; //andar para a frente em progresso
 ?>
 
 				<!-- ISTO IRÁ SER PRECISO 

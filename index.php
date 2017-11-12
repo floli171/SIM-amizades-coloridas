@@ -50,7 +50,7 @@ if(isset($_GET["operacao"])) {				//Código que procede ao logout quando o utili
 
 	<body style="font-family:'Verdana'">  <!-- estilo do corpo da página -->
 
-		<table width="1000px" height="620px" border="1" align="center" > <!-- Tabela de conteudo -->
+		<table width="1000px" height="700px" border="1" align="center" > <!-- Tabela de conteudo -->
 			<tr>
 				<th height="80" colspan="2">  <!-- Cabeçalho da página com hiperligação ao site FCT no logo do mesmo e nome do hospital -->
 					<a href="https://www.fct.unl.pt/" target="_blank""><img src="logo.png" height="50" width="120" align="left"></a>
@@ -98,12 +98,12 @@ if(isset($_GET["operacao"])) {				//Código que procede ao logout quando o utili
 										echo "<a href='http://localhost/SIM/index.php?operacao=listUsers&pageNumber=1&pageSize=10'>Listar</a>";
 									}
 									else if($_SESSION["authuser"]==0) { //se o utilizador ainda nao estiver autenticado apresenta Registar com hiperligação para o formulário de registo em showRegistry.php
-										echo "<a href='http://localhost/SIM/index.php?operacao=showRegistry?registry=showRegistry1'>Registar</a>";
+										echo "<a href='http://localhost/SIM/index.php?operacao=showRegistry&registry=showRegistry1'>Registar</a>";
 									}
 								}
 									
 								else {
-									echo "<a href='http://localhost/SIM/index.php?operacao=showRegistry?registry=showRegistry1'>Registar</a>"; //se ainda não houver variável "authuser" apresenta Registar com hiperligação para o formulário de registo em showRegistry.php
+									echo "<a href='http://localhost/SIM/index.php?operacao=showRegistry&registry=showRegistry1'>Registar</a>"; //se ainda não houver variável "authuser" apresenta Registar com hiperligação para o formulário de registo em showRegistry.php
 								}
 								?>
 							</td>
@@ -152,14 +152,6 @@ if(isset($_GET["operacao"])) {				//Código que procede ao logout quando o utili
 
 						 case 'showRegistry' :
 						 	include 'showRegistry.php';
-						 	break;
-
-						 case 'showRegistry1':
-						 	include 'showRegistry1.php';
-						 	break;
-
-						 case 'showRegistry2':
-						 	include 'showRegistry2.php';
 						 	break;
 
 						case 'personalInfo' :
