@@ -45,19 +45,16 @@ if(isset($_GET["operacao"])) {				//Código que procede ao logout quando o utili
 <html>
 
 	<head>
-		<title>Cl&iacute;nica SIM - FCT</title>	<!-- título da página -->
-		<meta charset="UTF-8">
+		<title>LifestyleFCT</title>	<!-- título da página -->
 	</head>
 
 	<body style="font-family:'Verdana'">  <!-- estilo do corpo da página -->
 
-		<table width="1000px" height="700px" border="1" align="center" > <!-- Tabela de conteudo -->
-			<col width="150">
- 			<col width="600">
+		<table width="1000px" height="620px" border="1" align="center" > <!-- Tabela de conteudo -->
 			<tr>
 				<th height="80" colspan="2">  <!-- Cabeçalho da página com hiperligação ao site FCT no logo do mesmo e nome do hospital -->
 					<a href="https://www.fct.unl.pt/" target="_blank""><img src="logo.png" height="50" width="120" align="left"></a>
-					<h1 align="center"><strong> HOSPITAL SIM - FCT </strong></h1> 
+					<h1 align="center"><strong> LifestyleFCT </strong></h1> 
 				</th>
 			</tr>
 
@@ -95,25 +92,33 @@ if(isset($_GET["operacao"])) {				//Código que procede ao logout quando o utili
 						<tr>
 							<td> <!-- hiperligação que acciona a operação "Listar" ou "Registar" consoante o valor da variável "authuser"-->
 								<?php
-								if(isset($_SESSION["authuser"])) { //verifica se já existe esta variável
+								if(isset($_SESSION["authuser"])) { //verifica se esta variável não tem valor null
 
 									if($_SESSION["authuser"]==1) { //se o utilizador já estiver autenticado apresenta Listar com hiperligação para listUsers.php com número de pagina inicial (1) e número de entradas por página (10)
 										echo "<a href='http://localhost/SIM/index.php?operacao=listUsers&pageNumber=1&pageSize=10'>Listar</a>";
 									}
 									else if($_SESSION["authuser"]==0) { //se o utilizador ainda nao estiver autenticado apresenta Registar com hiperligação para o formulário de registo em showRegistry.php
-										echo "<a href='http://localhost/SIM/index.php?operacao=showRegistry'>Registar</a>";
+										echo "<a href='http://localhost/SIM/index.php?operacao=showRegistry?registry=showRegistry1'>Registar</a>";
 									}
 								}
 									
 								else {
-									echo "<a href='http://localhost/SIM/index.php?operacao=showRegistry'>Registar</a>"; //se ainda não houver variável "authuser" apresenta Registar com hiperligação para o formulário de registo em showRegistry.php
+									echo "<a href='http://localhost/SIM/index.php?operacao=showRegistry?registry=showRegistry1'>Registar</a>"; //se ainda não houver variável "authuser" apresenta Registar com hiperligação para o formulário de registo em showRegistry.php
 								}
 								?>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								
+								<?php
+								if(isset($_SESSION["authuser"])) {
+
+									if($_SESSION["authuser"]==1) {
+										echo "<a href='http://localhost/SIM/index.php?operacao=personalInfo'>Ficha Cl&iacute;nica</a>";
+									}
+								}
+
+								?>
 							</td>
 						</tr>
 						</table>
@@ -149,9 +154,17 @@ if(isset($_GET["operacao"])) {				//Código que procede ao logout quando o utili
 						 	include 'showRegistry.php';
 						 	break;
 
-						 case 'registry' :
-						 	include 'registry.php';
+						 case 'showRegistry1':
+						 	include 'showRegistry1.php';
 						 	break;
+
+						 case 'showRegistry2':
+						 	include 'showRegistry2.php';
+						 	break;
+
+						case 'personalInfo' :
+							include 'personalInfo.php';
+							break;
 							
 						default:
 							include ('home.php');

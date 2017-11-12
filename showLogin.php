@@ -6,3 +6,5 @@
 <p>Password: <input type="password" name="pass" ></p>
 <input type="submit" name="Submit" value="Submit" >
 </form>
+
+Não tem conta? Registe-se já <a href="http://localhost/SIM/index.php?operacao=showRegistry">aqui</a>
