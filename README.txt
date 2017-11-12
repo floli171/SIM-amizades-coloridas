@@ -17,8 +17,14 @@ REGRAS
 
 ACTUALIZAÇÕES
 
-  2-11/2018
+  2-11-2018
   melhoria da interface (index.php)
   Floli 
 
-03-11-2018 Acabei o registo e comentei o código. Falta codificar as passes com MD para acabar  aula prática 5. Fiz uma nova sugestão André
+  03-11-2018 
+  Acabei o registo e comentei o código. Falta codificar as passes com MD para acabar  aula prática 5. Fiz uma nova sugestão 
+  André
+  
+  12-11-2018 
+  Melhorei o registo, mas está com um problema que espero resolver ainda hoje
+  Floli
