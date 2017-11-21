@@ -19,8 +19,8 @@ form {
 						<p>Género</p>
 					</td>
 					<td>
-						<input type="radio" name="gender" value="male" required>Masculino<br>
-						<input type="radio" name="gender" value="female" required>Feminino<br>
+						<input type="radio" name="gender" value="male">Masculino<br>
+						<input type="radio" name="gender" value="female">Feminino<br>
 					</td>
 				</tr>
 				<tr>
@@ -28,7 +28,7 @@ form {
 						<p>Data de Nascimento: </p>
 					</td>
 					<td>
-						<select name="day" required>	
+						<select name="day">	
 						<option> - Dia - </option>
 						<option value="1">1</option>
 						<option value="2">2</option>
@@ -63,7 +63,7 @@ form {
 						<option value="31">31</option>
 						</select> 
 				
-						<select name="month" required>
+						<select name="month">
 						<option> - Mês - </option>
 						<option value="Jannuart">Janeiro</option>
 						<option value="Febuary">Fevereiro</option>
@@ -79,7 +79,7 @@ form {
 						<option value="December">Dezembro</option>
 						</select>
 
-						<select name="year" required>
+						<select name="year">
 						<option> - Ano - </option>
 						<option value='1947'>1947</option>
 						<option value='1948'>1948</option>
@@ -160,7 +160,7 @@ form {
 						Nome Completo: 
 					</td>
 					<td>
-						<input type="text" name="name" required>
+						<input type="text" name="name">
 					</td>
 				</tr>
 				<tr>
@@ -168,7 +168,7 @@ form {
 						Morada: 
 					</td>
 					<td>
-						<input type="text" name="address" required>
+						<input type="text" name="address">
 					</td>
 				</tr>
 				<tr>
@@ -176,7 +176,7 @@ form {
 						Telemóvel: 
 					</td>
 					<td>
-						<input type="text" name="phone" maxlength="9" required>
+						<input type="text" name="phone" maxlength="9">
 					</td>
 				</tr>
 				
@@ -185,7 +185,7 @@ form {
 						Cart&atilde;o de Sa&uacute;de:
 					</td>
 					<td>
-						<input type="text" name="cardnumber" maxlength="9" required>
+						<input type="text" name="cardnumber" maxlength="9">
 					</td>
 				</tr>
 				<tr>
@@ -193,7 +193,7 @@ form {
 						Peso (kg): 
 					</td>
 					<td>
-						<input type="text" name="weight" maxlength="3" required>
+						<input type="text" name="weight" maxlength="3">
 					</td>
 				</tr>
 				<tr>
@@ -201,7 +201,17 @@ form {
 						Altura (m): 
 					</td>
 					<td>
-						<input type="text" name="height" maxlength="4" required>
+						<input type="text" name="height" maxlength="4">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Fotografia:
+					</td>
+					<td>
+						<form action="upload.php" method="post" enctype="multipart/form-data">
+						    <input type="file" name="fileToUpload" id="fileToUpload">
+						</form>
 					</td>
 				</tr>
 				<tr>
@@ -209,14 +219,14 @@ form {
 						Informação sobre a atividade di&aacute;ria
 					</td>
 					<td>
-						<textarea name="activity" rows="2" cols="30" required></textarea>
+						<textarea name="activity" rows="2" cols="30"></textarea>
 					</td>
 				</tr>
 					<td>
 						<br>E-mail: 
 					</td>
 					<td>
-						<br><input type="E-mail" name="email" required>
+						<br><input type="E-mail" name="email">
 					</td>
 				</tr>
 				<tr>
@@ -224,7 +234,7 @@ form {
 						Utilizador: 
 					</td>
 					<td>
-						<input type="text" name="user" required>
+						<input type="text" name="user">
 					</td>
 				</tr>
 				<tr>
@@ -232,7 +242,7 @@ form {
 						Password: 
 					</td>
 					<td>
-						<input type="password" name="pass" required>
+						<input type="password" name="pass">
 					</td>
 				</tr>
 		</table>

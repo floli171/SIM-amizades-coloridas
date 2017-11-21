@@ -42,7 +42,7 @@ if(isset($_GET["operacao"])) {				//Código que procede ao logout quando o utili
 
 ?>
 
-<html>
+<!DOCTYPE html>
 
 	<head>
 		<title>LifestyleFCT</title>	<!-- título da página -->
@@ -114,7 +114,7 @@ if(isset($_GET["operacao"])) {				//Código que procede ao logout quando o utili
 								if(isset($_SESSION["authuser"])) {
 
 									if($_SESSION["authuser"]==1) {
-										echo "<a href='http://localhost/SIM/index.php?operacao=personalInfo'>Ficha Cl&iacute;nica</a>";
+										echo "<a href='http://localhost/SIM/index.php?operacao=dailyInfo'>Ficha Di&aacuteria</a>";
 									}
 								}
 
@@ -154,8 +154,8 @@ if(isset($_GET["operacao"])) {				//Código que procede ao logout quando o utili
 						 	include 'showRegistry.php';
 						 	break;
 
-						case 'personalInfo' :
-							include 'personalInfo.php';
+						case 'dailyInfo' :
+							include 'dailyInfo.php';
 							break;
 							
 						default:

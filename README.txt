@@ -26,5 +26,5 @@ ACTUALIZAÇÕES
   André
   
   12-11-2018 
-  Melhorei o registo. Não actualizei a base de dados com os novos campos de registo
+  Melhorei o registo, mas está com um problema que espero resolver ainda hoje. Não actualizei a base de dados com os novos campos de registo
   Floli
