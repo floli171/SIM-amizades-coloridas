@@ -7,18 +7,37 @@
 		</th>
 	</tr>
 	<tr>
-		<td>
+		<td align="right">
 			<form>
-			<input type="checkbox" name="milk">
+			<input type="checkbox" name="milk" id="milk">
 			</form>
+
+			<script>
+				function myFunction() {
+					if (document.getElementById("checkbox").checked == true) {
+			  			document.getElementById("amountMeals").disabled = false
+			  		}
+  			</script>
 		</td>
 		<td>
 			Leite
 		</td>
 	</tr>
-		<td>
+	<tr>
+		<td colspan="2">
 			<form>
-			<input type="checkbox" name="bread">
+				<select name="amountMeals" id="amountMeals" disabled>	
+					<option> - Porção - </option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+			</form>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+			<form>
+			<input type="checkbox" name="bread" id="bread">
 			</form>
 		</td>
 		<td>
@@ -26,9 +45,9 @@
 		</td>
 	</tr>
 	<tr>
-		<td>
+		<td align="right">
 			<form>
-			<input type="checkbox" name="egg">
+			<input type="checkbox" name="egg" id="egg">
 			</form>
 		</td>
 		<td>
@@ -36,70 +55,70 @@
 		</td>
 
 	</tr>
-		<tr>
-		<td>
+	<tr>
+		<td align="right">
 			<form>
-			<input type="checkbox" name="fish">
+			<input type="checkbox" name="fish" id="fish">
 			</form>			
 		</td>
 		<td>
 			Peixe
 		</td>
 	</tr>
-		<tr>
-		<td>
+	<tr>
+		<td align="right">
 			<form>
-			<input type="checkbox" name="beef">
+			<input type="checkbox" name="beef" id="beef">
 			</form>			
 		</td>
 		<td>
-			Carne de Vaca
+			Vaca
 		</td>
 	</tr>
-		<tr>
-		<td>
+	<tr>
+		<td align="right">
 			<form>
-			<input type="checkbox" name="chicken">
+			<input type="checkbox" name="chicken" id="chicken">
 			</form>			
 		</td>
 		<td>
 			Frango
 		</td>		
 	</tr>
-		<tr>
-		<td>
+	<tr>
+		<td align="right">
 			<form>
-			<input type="checkbox" name="vegetable">
+			<input type="checkbox" name="vegetable" id="vegetable">
 			</form>			
 		</td>
 		<td>
 			Vegetais
 		</td>
 	</tr>
-		<tr>
-		<td>
+	<tr>
+		<td align="right">
 			<form>
-			<input type="checkbox" name="potato">
+			<input type="checkbox" name="potato" id="potato" disabled>
 			</form>			
 		</td>
 		<td>
 			Batata
 		</td>
 	</tr>
-		<tr>
-		<td>
+	<tr>
+		<td align="right">
 			<form>
-			<input type="checkbox" name="rice">
+			<input type="checkbox" name="rice" id="rice">
 			</form>			
 		</td>
 		<td>
 			Arroz
 		</td>
 	</tr>
-		<tr>
-		<td>
+	<tr>
+		<td align="right">
 			<form>
-			<input type="checkbox" name="fruit">
+			<input type="checkbox" name="fruit" id="fruit">
 			</form>			
 		</td>
 		<td>
