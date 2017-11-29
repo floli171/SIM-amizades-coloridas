@@ -4,10 +4,29 @@
 
 if($_SESSION["authuser"]==1) {
 			echo "Login bem sucedido!";
+			echo "<br>";
+			echo "Caro Utente, é bom vê-lo de volta! Nunca se se esqueça corpo são mente sã!";
 		}
-		else {
-			echo "<a href='http://localhost/SIM/index.php?operacao=showLogin'>Login</a>";
-			echo "Login incorrecto";
+else if($_SESSION["authuser"]==2) {
+			echo "Login bem sucedido!";
+			echo "<br>";
+			echo "Bem-Vindo Senhora Nutricionista! Já comeu fruta hoje?";
+		}		
+else if($_SESSION["authuser"]==3) {
+			echo "Login bem sucedido!";
+			echo "<br";
+			echo "Bem-Vindo Senhor Investigador! Não se esqueça de fazer exercício regularmente!";
+		}		
+else if($_SESSION["authuser"]==4) {
+			echo "Login bem sucedido!";
+			echo "<br>";
+			echo "Bem-Vindo Excelentíssimo Assistente! Seja bem vindo à roda da sorte!";
+		}
+		
+else {
+	echo "<a href='http://localhost/SIM/index.php?operacao=showLogin'>Login</a> incorrecto";
+	echo "<br>";
+	echo "Já se registou na nossa página?";
 		}
 
 ?>

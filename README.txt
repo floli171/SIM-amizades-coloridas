@@ -28,3 +28,12 @@ ACTUALIZAÇÕES
   12-11-2018 
   Melhorei o registo, mas está com um problema que espero resolver ainda hoje. Não actualizei a base de dados com os novos campos de registo
   Floli
+  
+  29-11-2018
+  
+  O utente já se pode registar - mudei a altura para cm porque não aceitava números decimais. falta arranjar uma maneira melhor p/ contornar isso
+  Funcionalidades do assistente - Regista utilizadores, apaga utilizadores
+  Criei base de dados "alimentos.sql" (alimentação_utente tinha ç e ã) e "comida_dia.sql" (Alimentação tinha ç e ã)
+  Criei o ficheiro options.php que tem as opções do menu a parte porque estava a ficar grande e vai ficar maior
+ 
+ André

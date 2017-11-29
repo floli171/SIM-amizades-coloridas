@@ -2,11 +2,11 @@
 <!-- Apresenta o Formulário de Registo quando o utilizador segue a hiperligação "Registar" -->
 <!-- Recebe do utilizador Nome completo, Utilizador e Password e guarda nas respectivas variáveis para inserir na base de dados -->
 
-<style type="text/css">
+<!-- <style type="text/css">
 form {
 	font-size: 1.25em; /*not working*/
 }
-</style>
+</style> -->
 
 <table border="1">
 	<th>Ficha de Registo</th>
@@ -65,18 +65,18 @@ form {
 				
 						<select name="month">
 						<option> - Mês - </option>
-						<option value="Jannuart">Janeiro</option>
-						<option value="Febuary">Fevereiro</option>
-						<option value="March">Mar&ccedil;o</option>
-						<option value="April">Abril</option>
-						<option value="May">Maio</option>
-						<option value="June">Junho</option>
-						<option value="July">Julho</option>
-						<option value="August">Agosto</option>
-						<option value="September">Setembro</option>
-						<option value="October">Outubro</option>
-						<option value="November">Novembro</option>
-						<option value="December">Dezembro</option>
+						<option value="01">Janeiro</option>
+						<option value="02">Fevereiro</option>
+						<option value="03">Mar&ccedil;o</option>
+						<option value="04">Abril</option>
+						<option value="05">Maio</option>
+						<option value="06">Junho</option>
+						<option value="07">Julho</option>
+						<option value="08">Agosto</option>
+						<option value="09">Setembro</option>
+						<option value="10">Outubro</option>
+						<option value="11">Novembro</option>
+						<option value="12">Dezembro</option>
 						</select>
 
 						<select name="year">
@@ -198,13 +198,13 @@ form {
 				</tr>
 				<tr>
 					<td>
-						Altura (m): 
+						Altura (cm): 
 					</td>
 					<td>
 						<input type="text" name="height" maxlength="4">
 					</td>
 				</tr>
-				<tr>
+				<!-- <tr>
 					<td>
 						Fotografia:
 					</td>
@@ -213,13 +213,15 @@ form {
 						    <input type="file" name="fileToUpload" id="fileToUpload">
 						</form>
 					</td>
-				</tr>
+				</tr> -->
 				<tr>
 					<td>
 						Informação sobre a atividade di&aacute;ria
 					</td>
 					<td>
-						<textarea name="activity" rows="2" cols="30"></textarea>
+						<select name="activity">	
+						<option> - Actividade - </option>
+						<option value="running">Corrida</option> </select> 
 					</td>
 				</tr>
 					<td>
