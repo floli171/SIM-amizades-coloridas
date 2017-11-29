@@ -65,18 +65,18 @@ form {
 				
 						<select name="month">
 						<option> - Mês - </option>
-						<option value="01">Janeiro</option>
-						<option value="02">Fevereiro</option>
-						<option value="03">Mar&ccedil;o</option>
-						<option value="04">Abril</option>
-						<option value="05">Maio</option>
-						<option value="06">Junho</option>
-						<option value="07">Julho</option>
-						<option value="08">Agosto</option>
-						<option value="09">Setembro</option>
-						<option value="10">Outubro</option>
-						<option value="11">Novembro</option>
-						<option value="12">Dezembro</option>
+						<option value="january">Janeiro</option>
+						<option value="february">Fevereiro</option>
+						<option value="march">Mar&ccedil;o</option>
+						<option value="april">Abril</option>
+						<option value="may">Maio</option>
+						<option value="june">Junho</option>
+						<option value="july">Julho</option>
+						<option value="august">Agosto</option>
+						<option value="september">Setembro</option>
+						<option value="october">Outubro</option>
+						<option value="november">Novembro</option>
+						<option value="december">Dezembro</option>
 						</select>
 
 						<select name="year">
