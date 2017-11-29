@@ -37,3 +37,13 @@ ACTUALIZAÇÕES
   Criei o ficheiro options.php que tem as opções do menu a parte porque estava a ficar grande e vai ficar maior
  
  André
+ 
+ &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ TEM SIDO UM BOM 2018!!!!!!!!!!!!!!!!111ONEONEoneononeee
+ &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ 
+ 29-11-2017
+ 
+ Ficha de registo acabada
+ 
+ Floli
