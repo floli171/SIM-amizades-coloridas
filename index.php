@@ -18,7 +18,7 @@ if(isset($_GET["operacao"])) {
 				UNION
 				SELECT Password, Tipo FROM investigador WHERE Username = "'.$_POST["user"].'"
 				UNION
-				SELECT Password, Tipo FROM utentes WHERE Username = "'.$_POST["user"].'"
+				SELECT Password, Tipo FROM utente WHERE Username = "'.$_POST["user"].'"
 				UNION
 				SELECT Password, Tipo FROM nutricionista WHERE Username = "'.$_POST["user"].'";';	//codigo SQL para seleccionar todas as informações na linha com o utilizador "user"	
 		
@@ -33,7 +33,7 @@ if(isset($_GET["operacao"])) {
 			{	
 				switch ($type)
 						{
-						case 'utentes' :
+						case 'utente' :
 							$_SESSION["authuser"]=1;
 							break;
 							
@@ -136,6 +136,7 @@ if(isset($_GET["operacao"])) {				//Código que procede ao logout quando o utili
 						 	break;
 							
 						case 'registry' :
+						echo '<script>console.log("oi")</script>';
 						 	include 'registry.php';
 						 	break;
 						

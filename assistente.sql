@@ -25,28 +25,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `investigador`
+-- Table structure for table `assistente`
 --
 
-DROP TABLE IF EXISTS `investigador`;
-CREATE TABLE IF NOT EXISTS `investigador` (
-  `I_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Nome` varchar(100) NOT NULL,
+DROP TABLE IF EXISTS `assistente`;
+CREATE TABLE IF NOT EXISTS `assistente` (
+  `AS_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Nome` varchar(100) CHARACTER SET utf8 NOT NULL,
   `Username` varchar(32) NOT NULL,
   `Password` varchar(20) NOT NULL,
   `Email` varchar(100) NOT NULL,
-  `Tipo` varchar(20) NOT NULL DEFAULT 'investigador',
+  `Tipo` varchar(20) CHARACTER SET utf8 NOT NULL DEFAULT 'assistente',
   `Data de Registo` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `Actividade` tinyint(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`I_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Investigadores';
+  PRIMARY KEY (`AS_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `investigador`
+-- Dumping data for table `assistente`
 --
 
-INSERT INTO `investigador` (`I_ID`, `Nome`, `Username`, `Password`, `Email`, `Tipo`, `Data de Registo`, `Actividade`) VALUES
-(1, 'Roberto Fonseca Dias', 'Roberto', 'InvRoberto', 'roberto79@gmail.com', 'investigador', '2017-12-08 17:17:34', 1);
+INSERT INTO `assistente` (`AS_ID`, `Nome`, `Username`, `Password`, `Email`, `Tipo`, `Data de Registo`) VALUES
+(1, 'Filipa Duque Fragoso Almeida Carvalho', 'Duque', 'Carvalho', 'fd.carvalho@campus.fct.unl.pt', 'assistente', '2017-12-08 00:00:00');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

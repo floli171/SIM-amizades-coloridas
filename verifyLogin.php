@@ -5,7 +5,7 @@
 if($_SESSION["authuser"]==1) {
 			echo "Login bem sucedido!";
 			echo "<br>";
-			echo "Caro Utente, é bom vê-lo de volta! Nunca se se esqueça corpo são mente sã!";
+			echo "Caro Utente, é bom vê-lo de volta! Nunca se esqueça corpo são mente sã!";
 		}
 else if($_SESSION["authuser"]==2) {
 			echo "Login bem sucedido!";

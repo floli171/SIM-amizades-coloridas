@@ -28,7 +28,7 @@
 								}
 									
 								else {
-									echo "<a href='http://localhost/SIM/index.php?operacao=showRegistry&registry=showRegistry1'>Registar</a>"; //se ainda não houver variável "authuser" apresenta Registar com hiperligação para o formulário de registo em showRegistry.php
+									echo "<a href='http://localhost/SIM/index.php?operacao=showRegistry'>Registar</a>"; //se ainda não houver variável "authuser" apresenta Registar com hiperligação para o formulário de registo em showRegistry.php
 								}
 								?>
 							</td>

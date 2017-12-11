@@ -1,5 +1,13 @@
 <p>Aqui deverá fazer o registo diário da sua alimenta&ccedil;&atilde;o</p> <hr>
 
+<script>
+	function myFunction(food, portion) {
+		if (document.getElementById(food).checked == true) {
+  			document.getElementById(portion).disabled = false
+  		}
+  	}
+</script>
+
 <table border="0">
 	<tr>
 		<th colspan="2">
@@ -9,15 +17,8 @@
 	<tr>
 		<td align="right">
 			<form>
-			<input type="checkbox" name="milk" id="milk">
+			<input type="checkbox" name="milk" id="milk" onclick="myFunction('milk', 'portionMilk')">
 			</form>
-
-			<script>
-				function myFunction() {
-					if (document.getElementById("checkbox").checked == true) {
-			  			document.getElementById("amountMeals").disabled = false
-			  		}
-  			</script>
 		</td>
 		<td>
 			Leite
@@ -26,7 +27,7 @@
 	<tr>
 		<td colspan="2">
 			<form>
-				<select name="amountMeals" id="amountMeals" disabled>	
+				<select name="portionMilk" id="portionMilk" disabled>	
 					<option> - Porção - </option>
 					<option value="1">1</option>
 					<option value="2">2</option>
@@ -37,7 +38,7 @@
 	<tr>
 		<td align="right">
 			<form>
-			<input type="checkbox" name="bread" id="bread">
+			<input type="checkbox" name="bread" id="bread" onclick="myFunction('bread', 'portionBread')">
 			</form>
 		</td>
 		<td>
@@ -45,20 +46,41 @@
 		</td>
 	</tr>
 	<tr>
+		<td colspan="2">
+			<form>
+				<select name="portionBread" id="portionBread" disabled>	
+					<option> - Porção - </option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+			</form>
+		</td>
+	</tr>
+	<tr>
 		<td align="right">
 			<form>
-			<input type="checkbox" name="egg" id="egg">
+			<input type="checkbox" name="egg" id="egg" onclick="myFunction('egg', 'portionEgg')">
 			</form>
 		</td>
 		<td>
 			Ovos
 		</td>
-
+	</tr>
+	<tr>
+		<td colspan="2">
+			<form>
+				<select name="portionEgg" id="portionEgg" disabled>	
+					<option> - Porção - </option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+			</form>
+		</td>
 	</tr>
 	<tr>
 		<td align="right">
 			<form>
-			<input type="checkbox" name="fish" id="fish">
+			<input type="checkbox" name="fish" id="fish" onclick="myFunction('fish', 'portionFish')">
 			</form>			
 		</td>
 		<td>
@@ -66,9 +88,20 @@
 		</td>
 	</tr>
 	<tr>
+		<td colspan="2">
+			<form>
+				<select name="portionFish" id="portionFish" disabled>	
+					<option> - Porção - </option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+			</form>
+		</td>
+	</tr>
+	<tr>
 		<td align="right">
 			<form>
-			<input type="checkbox" name="beef" id="beef">
+			<input type="checkbox" name="beef" id="beef" onclick="myFunction('beef', 'portionBeef')">
 			</form>			
 		</td>
 		<td>
@@ -76,9 +109,20 @@
 		</td>
 	</tr>
 	<tr>
+		<td colspan="2">
+			<form>
+				<select name="portionBeef" id="portionBeef" disabled>	
+					<option> - Porção - </option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+			</form>
+		</td>
+	</tr>
+	<tr>
 		<td align="right">
 			<form>
-			<input type="checkbox" name="chicken" id="chicken">
+			<input type="checkbox" name="chicken" id="chicken" onclick="myFunction('chicken', 'portionChicken')">
 			</form>			
 		</td>
 		<td>
@@ -86,9 +130,20 @@
 		</td>		
 	</tr>
 	<tr>
+		<td colspan="2">
+			<form>
+				<select name="portionChicken" id="portionChicken" disabled>	
+					<option> - Porção - </option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+			</form>
+		</td>
+	</tr>
+	<tr>
 		<td align="right">
 			<form>
-			<input type="checkbox" name="vegetable" id="vegetable">
+			<input type="checkbox" name="vegetable" id="vegetable" onclick="myFunction('vegetable', 'portionVegetable')">
 			</form>			
 		</td>
 		<td>
@@ -96,9 +151,20 @@
 		</td>
 	</tr>
 	<tr>
+		<td colspan="2">
+			<form>
+				<select name="portionVegetable" id="portionVegetable" disabled>	
+					<option> - Porção - </option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+			</form>
+		</td>
+	</tr>
+	<tr>
 		<td align="right">
 			<form>
-			<input type="checkbox" name="potato" id="potato" disabled>
+			<input type="checkbox" name="potato" id="potato" onclick="myFunction('potato', 'portionPotato')">
 			</form>			
 		</td>
 		<td>
@@ -106,9 +172,20 @@
 		</td>
 	</tr>
 	<tr>
+		<td colspan="2">
+			<form>
+				<select name="portionPotato" id="portionPotato" disabled>	
+					<option> - Porção - </option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+			</form>
+		</td>
+	</tr>
+	<tr>
 		<td align="right">
 			<form>
-			<input type="checkbox" name="rice" id="rice">
+			<input type="checkbox" name="rice" id="rice" onclick="myFunction('rice', 'portionRice')">
 			</form>			
 		</td>
 		<td>
@@ -116,13 +193,35 @@
 		</td>
 	</tr>
 	<tr>
+		<td colspan="2">
+			<form>
+				<select name="portionRice" id="portionRice" disabled>	
+					<option> - Porção - </option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+			</form>
+		</td>
+	</tr>
+	<tr>
 		<td align="right">
 			<form>
-			<input type="checkbox" name="fruit" id="fruit">
+			<input type="checkbox" name="fruit" id="fruit" onclick="myFunction('fruit', 'portionFruit')">
 			</form>			
 		</td>
 		<td>
 			Frutas
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<form>
+				<select name="portionFruit" id="portionFruit" disabled>	
+					<option> - Porção - </option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+			</form>
 		</td>
 	</tr>
 	<br>

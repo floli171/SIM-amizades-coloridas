@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 21-Nov-2017 às 02:04
--- Versão do servidor: 5.7.19
+-- Generation Time: Dec 11, 2017 at 02:02 AM
+-- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `nutricionista`
+-- Table structure for table `nutricionista`
 --
 
 DROP TABLE IF EXISTS `nutricionista`;
@@ -35,9 +35,18 @@ CREATE TABLE IF NOT EXISTS `nutricionista` (
   `Username` varchar(32) NOT NULL,
   `Password` varchar(20) NOT NULL,
   `Email` varchar(100) NOT NULL,
-  `Data de Registo` timestamp NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `Data de Registo` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Tipo` varchar(20) NOT NULL DEFAULT 'nutricionista',
+  `Actividade` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`N_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Nutricionistas';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Nutricionistas';
+
+--
+-- Dumping data for table `nutricionista`
+--
+
+INSERT INTO `nutricionista` (`N_ID`, `Nome`, `Username`, `Password`, `Email`, `Data de Registo`, `Tipo`, `Actividade`) VALUES
+(1, 'Sandra Melo dos Santos', 'Sandra', 'NutriSandra', 'sandramelo@sapo.pt', '2017-12-08 17:24:47', 'nutricionista', 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

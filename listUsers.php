@@ -26,7 +26,7 @@ $connect = mysqli_connect('localhost', 'root', '', 'sim') or die(mysqli_error($c
 					for($n=($pageNumber - 1) * $pageSize; $n < $pageNumber * $pageSize; $n++) { /*n é o index*/
 					
 					$i=$n+1; //para começar a ir buscar useres a tabela a partir do ID 1
-					$query_id = 'SELECT * FROM utentes WHERE (U_ID = "'.$i.'")'; //codigo SQL para seleccionar todas as informações com o ID i
+					$query_id = 'SELECT * FROM utente WHERE (U_ID = "'.$i.'")'; //codigo SQL para seleccionar todas as informações com o ID i
 					$get_id = mysqli_query($connect, $query_id) or die(mysqli_error($connect)); //executa o codigo anterior
 					$id_info = mysqli_fetch_array($get_id); //guarda os resultados num vector
 					$name=$id_info['Nome']; //Guarda o valor do nome completo

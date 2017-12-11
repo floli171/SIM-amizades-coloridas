@@ -13,7 +13,7 @@ form {
 	<tr>
 		<td>
 			<table border="0">
-				<form method="POST" action="index.php?operacao=registry">
+				<form method="POST" action="index.php?operacao=registry" enctype="multipart/form-data">
 				<tr>
 					<td>
 						<p>Género</p>
@@ -21,6 +21,7 @@ form {
 					<td>
 						<input type="radio" name="gender" value="male">Masculino<br>
 						<input type="radio" name="gender" value="female">Feminino<br>
+						<input type="radio" name="gender" value="other">Outro<br>
 					</td>
 				</tr>
 				<tr>
@@ -65,18 +66,18 @@ form {
 				
 						<select name="month">
 						<option> - Mês - </option>
-						<option value="january">Janeiro</option>
-						<option value="february">Fevereiro</option>
-						<option value="march">Mar&ccedil;o</option>
-						<option value="april">Abril</option>
-						<option value="may">Maio</option>
-						<option value="june">Junho</option>
-						<option value="july">Julho</option>
-						<option value="august">Agosto</option>
-						<option value="september">Setembro</option>
-						<option value="october">Outubro</option>
-						<option value="november">Novembro</option>
-						<option value="december">Dezembro</option>
+						<option value="01">Janeiro</option>
+						<option value="02">Fevereiro</option>
+						<option value="03">Mar&ccedil;o</option>
+						<option value="04">Abril</option>
+						<option value="05">Maio</option>
+						<option value="06">Junho</option>
+						<option value="07">Julho</option>
+						<option value="08">Agosto</option>
+						<option value="09">Setembro</option>
+						<option value="10">Outubro</option>
+						<option value="11">Novembro</option>
+						<option value="12">Dezembro</option>
 						</select>
 
 						<select name="year">
@@ -201,27 +202,16 @@ form {
 						Altura (cm): 
 					</td>
 					<td>
-						<input type="text" name="height" maxlength="4">
+						<input type="text" name="height" maxlength="3">
 					</td>
 				</tr>
-				<!-- <tr>
+				<tr>
 					<td>
 						Fotografia:
 					</td>
 					<td>
-						<form action="upload.php" method="post" enctype="multipart/form-data">
-						    <input type="file" name="fileToUpload" id="fileToUpload">
-						</form>
-					</td>
-				</tr> -->
-				<tr>
-					<td>
-						Informação sobre a atividade di&aacute;ria
-					</td>
-					<td>
-						<select name="activity">	
-						<option> - Actividade - </option>
-						<option value="running">Corrida</option> </select> 
+						<!-- <form action="upload.php" method="POST" enctype="multipart/form-data"> -->
+						<input type="file" name="fileToUpload" id="fileToUpload">
 					</td>
 				</tr>
 					<td>
@@ -252,8 +242,4 @@ form {
 	</tr>
 </table>
 
-<br><p><input type="Submit" name="Submit" value="Submit"></form></p>
-
-
-
-<!-- uma fotografia-->
+<br><p><input type="Submit" name="Submit" value="Submit"></p></form>
