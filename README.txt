@@ -43,7 +43,9 @@ ACTUALIZAÇÕES
  &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
  
  29-11-2017
- 
  Ficha de registo acabada
+ Floli
  
+ 12-12-2017
+ Update nas tabelas assistente, investigador, nutricionista e substituiçao de utentes por utente (alteraçao nas querys em que é chamado). Já é possível inserir uma fotografia de tamanho limitado. O registo é feito com sucesso a partir do site
  Floli
