@@ -66,11 +66,21 @@ if(isset($_GET["operacao"])) {				//Código que procede ao logout quando o utili
 
 ?>
 
-<!--DOCTYPE html-->
-
-	<head>
-		<title>LifestyleFCT</title>	<!-- título da página -->
-	</head>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LifestyleFCT</title>	<!-- título da página -->
+</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+body {font-size:16px;}
+.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+.w3-half img:hover{opacity:1}
+</style>
 
 	<body style="font-family:'Verdana'">  <!-- estilo do corpo da página -->
 
@@ -136,7 +146,6 @@ if(isset($_GET["operacao"])) {				//Código que procede ao logout quando o utili
 						 	break;
 							
 						case 'registry' :
-						echo '<script>console.log("oi")</script>';
 						 	include 'registry.php';
 						 	break;
 						
@@ -159,7 +168,23 @@ if(isset($_GET["operacao"])) {				//Código que procede ao logout quando o utili
 						case 'dailyInfo' :
 							include 'dailyInfo.php';
 							break;
-							
+
+						case 'editInfo' :
+							include 'editInfo.php';
+							break;
+
+						case 'editContact' :
+							include 'editContact.php';
+							break;
+						
+						case 'editData' :
+							include 'editData.php';
+							break;
+
+						case 'editAccount' :
+							include 'editAccount.php';
+							break;
+
 						default:
 							include ('home.php');
 							break;	
