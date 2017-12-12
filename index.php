@@ -221,6 +221,10 @@ body {font-size:16px;}
 						case 'userProfile' :
 							include 'userProfile.php';
 							break;
+						
+						case 'showProfile' :
+							include 'showProfile.php';
+							break;
 
 						default:
 							include ('home.php');

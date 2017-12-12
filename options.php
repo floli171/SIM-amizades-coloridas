@@ -41,7 +41,7 @@
 									if($_SESSION["authuser"]==1) {
 										echo "<a href='http://localhost/SIM/index.php?operacao=dailyInfo'>Ficha Di&aacuteria</a>";
 										echo "<br>";
-										echo "<a href='http://localhost/SIM/index.php?operacao=editInfo'>Editar Informa&ccedil;&atilde;o</a>";
+										echo "<a href='http://localhost/SIM/index.php?operacao=showProfile'>Editar Informa&ccedil;&atilde;o</a>";
 									}
 								}
 
