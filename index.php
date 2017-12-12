@@ -14,19 +14,20 @@ if(isset($_GET["operacao"])) {
 			die('Unable to connect to database [' . $db->connect_error . ']');
 			}*/
 		
-		$query_userpass = 'SELECT Password, Tipo FROM assistente WHERE Username = "'.$_POST["user"].'" 
+		$query_userinfo = 'SELECT Password, Tipo, Actividade FROM assistente WHERE Username = "'.$_POST["user"].'" 
 				UNION
-				SELECT Password, Tipo FROM investigador WHERE Username = "'.$_POST["user"].'"
+				SELECT Password, Tipo, Actividade FROM investigador WHERE Username = "'.$_POST["user"].'"
 				UNION
-				SELECT Password, Tipo FROM utente WHERE Username = "'.$_POST["user"].'"
+				SELECT Password, Tipo, Actividade FROM utente WHERE Username = "'.$_POST["user"].'"
 				UNION
-				SELECT Password, Tipo FROM nutricionista WHERE Username = "'.$_POST["user"].'";';	//codigo SQL para seleccionar todas as informações na linha com o utilizador "user"	
+				SELECT Password, Tipo, Actividade FROM nutricionista WHERE Username = "'.$_POST["user"].'";';	//codigo SQL para seleccionar todas as informações na linha com o utilizador "user"	
 		
-		$get_userpass = mysqli_query($connect, $query_userpass) or die(mysqli_error($connect)); //executa o código anterior
-		$userpass = mysqli_fetch_array($get_userpass);											//guarda os resultados do anterior num vector user[]
-		$number = mysqli_num_rows($get_userpass);											//número de utilizadores encontrados com "user". Em principio deverá ser 1 ou 0
-		$pass = $userpass['Password'];														//guarda o valor verdadeiro da pass do Utilizador constante na base de dados
-		$type = $userpass['Tipo'];
+		$get_userinfo = mysqli_query($connect, $query_userinfo) or die(mysqli_error($connect)); //executa o código anterior
+		$userinfo = mysqli_fetch_array($get_userinfo);											//guarda os resultados do anterior num vector user[]
+		$number = mysqli_num_rows($get_userinfo);											//número de utilizadores encontrados com "user". Em principio deverá ser 1 ou 0
+		$pass = $userinfo['Password'];														//guarda o valor verdadeiro da pass do Utilizador constante na base de dados
+		$type = $userinfo['Tipo'];
+		$activity = $userinfo['Actividade'];
 		if($number > 0)																	// verifica se o utilizador existe. só avança caso exista
 		{
 			if ($_SESSION["userpass"] == $pass)											//verifica se a pass introduzida pelo Utilizador coincide com a pass guardada na base de dados para esse Utilizador
@@ -34,20 +35,48 @@ if(isset($_GET["operacao"])) {
 				switch ($type)
 						{
 						case 'utente' :
-							$_SESSION["authuser"]=1;
+							if($activity == 1)
+							{
+								$_SESSION["authuser"]=1;
+							}
+							else
+							{
+								$_SESSION["authuser"]=-1;
+							}
 							break;
 							
 						case 'nutricionista' :
-							$_SESSION["authuser"]=2;
+							if($activity == 1)
+							{
+								$_SESSION["authuser"]=2;
+							}
+							else
+							{
+								$_SESSION["authuser"]=-1;
+							}
 							break;
 
 						case 'investigador' :
-							$_SESSION["authuser"]=3;
+							if($activity == 1)
+							{
+								$_SESSION["authuser"]=3;
+							}
+							else
+							{
+								$_SESSION["authuser"]=-1;
+							}
 							break;
 
 						case 'assistente' :
-							$_SESSION["authuser"]=4;
-							break;	
+							if($activity == 1)
+							{
+								$_SESSION["authuser"]=4;
+							}
+							else
+							{
+								$_SESSION["authuser"]=-1;
+							}
+							break;
 						}//auturiza o login caso a condição anterior se verifique
 			}
 			// else {
@@ -66,7 +95,7 @@ if(isset($_GET["operacao"])) {				//Código que procede ao logout quando o utili
 
 ?>
 
-<!DOCTYPE html>
+<!--DOCTYPE html-->
 <html>
 <head>
 	<title>LifestyleFCT</title>	<!-- título da página -->
@@ -168,6 +197,10 @@ body {font-size:16px;}
 						case 'dailyInfo' :
 							include 'dailyInfo.php';
 							break;
+							
+						case 'registDay' :
+							include 'registDay.php';
+							break;
 
 						case 'editInfo' :
 							include 'editInfo.php';
@@ -183,6 +216,10 @@ body {font-size:16px;}
 
 						case 'editAccount' :
 							include 'editAccount.php';
+							break;
+							
+						case 'userProfile' :
+							include 'userProfile.php';
 							break;
 
 						default:

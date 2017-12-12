@@ -1,5 +1,5 @@
 <table border="1">
-	<th>Ficha de Registo</th>
+	<th>Escolha o Utilizador a Remover</th>
 	<tr>
 		<td>
 			<table border="0">

@@ -6,8 +6,6 @@
 								}
 								if($_SESSION["authuser"]>0) { //se o utilizador já estiver autenticado apresenta Logout com respectiva hiperligação
 									echo "<a href='http://localhost/SIM/index.php?operacao=logout'>Logout</a>";
-									echo "<br>";
-									echo "<a href='http://localhost/SIM/index.php?operacao=editInfo'>Editar Informa&ccedil;&atilde;o</a>";
 								}
 							}
 							else {
@@ -42,6 +40,8 @@
 
 									if($_SESSION["authuser"]==1) {
 										echo "<a href='http://localhost/SIM/index.php?operacao=dailyInfo'>Ficha Di&aacuteria</a>";
+										echo "<br>";
+										echo "<a href='http://localhost/SIM/index.php?operacao=editInfo'>Editar Informa&ccedil;&atilde;o</a>";
 									}
 								}
 

@@ -71,11 +71,6 @@
 					</td>
 					<td>
 						<input type="text" name="address">
-						<?php
-							$query_address = "UPDATE utente SET Morada = 'Rua dos Bombeiros' WHERE Username LIKE '".$_SESSION['username']."'";
-								//liga a query id à base de dados sim
-							$result = mysqli_query($connect,$query_address) or die (mysqli_error($connect));
-						?>
 					</td>
 				</tr>
 				<tr>

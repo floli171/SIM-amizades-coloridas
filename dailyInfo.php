@@ -16,9 +16,9 @@
 	</tr>
 	<tr>
 		<td align="right">
-			<form>
+			<form method="POST" action="index.php?operacao=registDay">
+			
 			<input type="checkbox" name="milk" id="milk" onclick="myFunction('milk', 'portionMilk')">
-			</form>
 		</td>
 		<td>
 			Leite
@@ -26,20 +26,16 @@
 	</tr>
 	<tr>
 		<td colspan="2">
-			<form>
-				<select name="portionMilk" id="portionMilk" disabled>	
-					<option> - Porção - </option>
+				<select name="portionMilk" value="0" id="portionMilk" disabled>	
+					<option value="0"> - Porção - </option>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
-			</form>
 		</td>
 	</tr>
 	<tr>
 		<td align="right">
-			<form>
 			<input type="checkbox" name="bread" id="bread" onclick="myFunction('bread', 'portionBread')">
-			</form>
 		</td>
 		<td>
 			Pão
@@ -47,20 +43,16 @@
 	</tr>
 	<tr>
 		<td colspan="2">
-			<form>
 				<select name="portionBread" id="portionBread" disabled>	
-					<option> - Porção - </option>
+					<option value="0"> - Porção - </option>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
-			</form>
 		</td>
 	</tr>
 	<tr>
 		<td align="right">
-			<form>
 			<input type="checkbox" name="egg" id="egg" onclick="myFunction('egg', 'portionEgg')">
-			</form>
 		</td>
 		<td>
 			Ovos
@@ -68,20 +60,16 @@
 	</tr>
 	<tr>
 		<td colspan="2">
-			<form>
 				<select name="portionEgg" id="portionEgg" disabled>	
-					<option> - Porção - </option>
+					<option value="0"> - Porção - </option>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
-			</form>
 		</td>
 	</tr>
 	<tr>
 		<td align="right">
-			<form>
-			<input type="checkbox" name="fish" id="fish" onclick="myFunction('fish', 'portionFish')">
-			</form>			
+			<input type="checkbox" name="fish" id="fish" onclick="myFunction('fish', 'portionFish')">		
 		</td>
 		<td>
 			Peixe
@@ -89,20 +77,16 @@
 	</tr>
 	<tr>
 		<td colspan="2">
-			<form>
 				<select name="portionFish" id="portionFish" disabled>	
-					<option> - Porção - </option>
+					<option value="0"> - Porção - </option>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
-			</form>
 		</td>
 	</tr>
 	<tr>
 		<td align="right">
-			<form>
-			<input type="checkbox" name="beef" id="beef" onclick="myFunction('beef', 'portionBeef')">
-			</form>			
+			<input type="checkbox" name="beef" id="beef" onclick="myFunction('beef', 'portionBeef')">		
 		</td>
 		<td>
 			Vaca
@@ -110,20 +94,16 @@
 	</tr>
 	<tr>
 		<td colspan="2">
-			<form>
 				<select name="portionBeef" id="portionBeef" disabled>	
-					<option> - Porção - </option>
+					<option value="0"> - Porção - </option>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
-			</form>
 		</td>
 	</tr>
 	<tr>
 		<td align="right">
-			<form>
-			<input type="checkbox" name="chicken" id="chicken" onclick="myFunction('chicken', 'portionChicken')">
-			</form>			
+			<input type="checkbox" name="chicken" id="chicken" onclick="myFunction('chicken', 'portionChicken')">	
 		</td>
 		<td>
 			Frango
@@ -131,20 +111,16 @@
 	</tr>
 	<tr>
 		<td colspan="2">
-			<form>
 				<select name="portionChicken" id="portionChicken" disabled>	
-					<option> - Porção - </option>
+					<option value="0"> - Porção - </option>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
-			</form>
 		</td>
 	</tr>
 	<tr>
 		<td align="right">
-			<form>
-			<input type="checkbox" name="vegetable" id="vegetable" onclick="myFunction('vegetable', 'portionVegetable')">
-			</form>			
+			<input type="checkbox" name="vegetable" id="vegetable" onclick="myFunction('vegetable', 'portionVegetable')">		
 		</td>
 		<td>
 			Vegetais
@@ -152,20 +128,16 @@
 	</tr>
 	<tr>
 		<td colspan="2">
-			<form>
 				<select name="portionVegetable" id="portionVegetable" disabled>	
-					<option> - Porção - </option>
+					<option value="0"> - Porção - </option>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
-			</form>
 		</td>
 	</tr>
 	<tr>
 		<td align="right">
-			<form>
-			<input type="checkbox" name="potato" id="potato" onclick="myFunction('potato', 'portionPotato')">
-			</form>			
+			<input type="checkbox" name="potato" id="potato" onclick="myFunction('potato', 'portionPotato')">		
 		</td>
 		<td>
 			Batata
@@ -173,20 +145,16 @@
 	</tr>
 	<tr>
 		<td colspan="2">
-			<form>
 				<select name="portionPotato" id="portionPotato" disabled>	
-					<option> - Porção - </option>
+					<option value="0"> - Porção - </option>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
-			</form>
 		</td>
 	</tr>
 	<tr>
 		<td align="right">
-			<form>
-			<input type="checkbox" name="rice" id="rice" onclick="myFunction('rice', 'portionRice')">
-			</form>			
+			<input type="checkbox" name="rice" id="rice" onclick="myFunction('rice', 'portionRice')">		
 		</td>
 		<td>
 			Arroz
@@ -194,20 +162,16 @@
 	</tr>
 	<tr>
 		<td colspan="2">
-			<form>
 				<select name="portionRice" id="portionRice" disabled>	
-					<option> - Porção - </option>
+					<option value="0"> - Porção - </option>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
-			</form>
 		</td>
 	</tr>
 	<tr>
 		<td align="right">
-			<form>
-			<input type="checkbox" name="fruit" id="fruit" onclick="myFunction('fruit', 'portionFruit')">
-			</form>			
+			<input type="checkbox" name="fruit" id="fruit" onclick="myFunction('fruit', 'portionFruit')">	
 		</td>
 		<td>
 			Frutas
@@ -215,13 +179,11 @@
 	</tr>
 	<tr>
 		<td colspan="2">
-			<form>
 				<select name="portionFruit" id="portionFruit" disabled>	
-					<option> - Porção - </option>
+					<option value="0"> - Porção - </option>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
-			</form>
 		</td>
 	</tr>
 	<br>
@@ -238,7 +200,7 @@
 			Dura&ccedil;&atilde;o da corrida:
 		</td>
 		<td>
-			<input type="text" name="exerciseduration">
+			<input type="number" name="exerciseduration" value="0">
 		</td>
 	</tr>
 	<tr>
@@ -246,11 +208,12 @@
 			Velocidade m&eacute;dia:
 		</td>
 		<td>
-			<input type="text" name="averagevelocity">
+			<input type="number" name="averagevelocity" value="0">
 		</td>
 	</tr>
 </table>
 
+<br><p><input type="Submit" name="Submit" value="Submit"></p></form>
 
 <!-- sugestões
 		a partir do momento em que o utilizador coloca a informação há um lock e para alterar é necessário clicar no botão "editar"-->

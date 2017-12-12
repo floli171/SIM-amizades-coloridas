@@ -22,6 +22,11 @@ else if($_SESSION["authuser"]==4) {
 			echo "<br>";
 			echo "Bem-Vindo Excelentíssimo Assistente! Seja bem vindo à roda da sorte!";
 		}
+else if($_SESSION["authuser"]==-1) {
+			echo "Login incorrecto";
+			echo "<br>";
+			echo "Esta conta foi desactivada por um Assistente. Reactive a sua conta aqui";
+		}
 		
 else {
 	echo "<a href='http://localhost/SIM/index.php?operacao=showLogin'>Login</a> incorrecto";

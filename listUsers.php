@@ -10,16 +10,9 @@ $connect = mysqli_connect('localhost', 'root', '', 'sim') or die(mysqli_error($c
 <table width="500px" height="350px" border="1" align="center" >
 			<tr bgcolor="33FF33"> <!-- primeira linha com o nome das entradas -->
 				<th> id </th>
-				<th> Nome </th>
+				<th> Nome de Utilizador </th>
 				<th> Genero </th>
-				<th> Data de Nascimento </th>
-				<th> Morada </th>
-				<th> Telefone </th>
-				<th> C.S </th>
-				<th> Peso </th>
-				<th> Altura </th>
-				<th> Email </th>
-				<th> Actividade </th>
+				<th> Data de Registo </th>
 			</tr>
 			<tr>
 				<?php 
@@ -29,16 +22,9 @@ $connect = mysqli_connect('localhost', 'root', '', 'sim') or die(mysqli_error($c
 					$query_id = 'SELECT * FROM utente WHERE (U_ID = "'.$i.'")'; //codigo SQL para seleccionar todas as informações com o ID i
 					$get_id = mysqli_query($connect, $query_id) or die(mysqli_error($connect)); //executa o codigo anterior
 					$id_info = mysqli_fetch_array($get_id); //guarda os resultados num vector
-					$name=$id_info['Nome']; //Guarda o valor do nome completo
+					$username=$id_info['Username']; //Guarda o valor do nome completo
 					$gender=$id_info['Gen']; //Guarda o valor do nome completo
-					$date=$id_info['DatadeNascimento']; //Guarda o valor da data de criação do utilizador
-					$address=$id_info['Morada']; //Guarda o valor da Morada do utilizador
-					$phone=$id_info['Tel']; //Guarda o valor do contacto telefónico do utilizador
-					$cardnumber=$id_info['CS']; //Guarda o valor do número do cartão de saúde do utilizador
-					$weight=$id_info['Peso']; //Guarda o valor do peso do utilizador
-					$height=$id_info['Altura']; //Guarda o valor da daltura do utilizador
-					$email=$id_info['Email']; //Guarda o valor do contacto de Email do utilizador
-					$activity=$id_info['Actividade']; //Guarda o valor do tipo de atividade diária do utilizador
+					$date=$id_info['Data de Registo']; //Guarda o valor da data de criação do utilizador
 					
 					
 						//executa várias vezes criando as várias linhas da lista de utilizadores
@@ -49,7 +35,7 @@ $connect = mysqli_connect('localhost', 'root', '', 'sim') or die(mysqli_error($c
 							echo "</td>";
 
 							echo "<td>";
-								echo "$name";
+								echo "<a href='http://localhost/SIM/index.php?operacao=userProfile&profile=$i'>$username</a>";
 							echo "</td>";
 
 							echo "<td>";
@@ -60,33 +46,6 @@ $connect = mysqli_connect('localhost', 'root', '', 'sim') or die(mysqli_error($c
 								echo "$date";
 							echo "</td>";
 							
-							echo "<td>";
-								echo "$address";
-							echo "</td>";
-							
-							echo "<td>";
-								echo "$phone";
-							echo "</td>";
-							
-							echo "<td>";
-								echo "$cardnumber";
-							echo "</td>";
-							
-							echo "<td>";
-								echo "$weight";
-							echo "</td>";
-							
-							echo "<td>";
-								echo "$height";
-							echo "</td>";
-							
-							echo "<td>";
-								echo "$email";
-							echo "</td>";
-							
-							echo "<td>";
-								echo "$activity";
-							echo "</td>";							
 						echo "</tr>";
 					}
 				?>

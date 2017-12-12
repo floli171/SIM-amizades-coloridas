@@ -82,7 +82,7 @@
 						Altura (cm): 
 					</td>
 					<td>
-						<input type="text" name="height" maxlength="3">
+						<input type="text" name="height" maxlength="3" value="<?php echo $height?>">
 						<?php
 							$query_height = "UPDATE utente SET Altura = '173' WHERE Username LIKE '".$_SESSION['username']."'";
 								//liga a query id à base de dados sim

@@ -7,7 +7,7 @@
 				UNION
 				SELECT Username FROM investigador WHERE Username = "'.$_POST["user"].'"
 				UNION
-				SELECT Username FROM utentes WHERE Username = "'.$_POST["user"].'"
+				SELECT Username FROM utente WHERE Username = "'.$_POST["user"].'"
 				UNION
 				SELECT Username FROM nutricionista WHERE Username = "'.$_POST["user"].'";';
 				

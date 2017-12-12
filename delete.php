@@ -7,7 +7,7 @@
 				UNION
 				SELECT Username, Tipo FROM investigador WHERE Username = "'.$_POST["user"].'"
 				UNION
-				SELECT Username, Tipo FROM utentes WHERE Username = "'.$_POST["user"].'"
+				SELECT Username, Tipo FROM utente WHERE Username = "'.$_POST["user"].'"
 				UNION
 				SELECT Username, Tipo FROM nutricionista WHERE Username = "'.$_POST["user"].'";';
 				
@@ -33,8 +33,8 @@
 			}
 			else
 			{
-				$query_delete = 'DELETE FROM '.$_POST["usertype"].' WHERE Username = "'.$_POST["user"].'"';
-				$delete = mysqli_query($connect, $query_delete) or die(mysqli_error($connect));
+				$query_disable = 'UPDATE '.$type.' SET Actividade = 0 WHERE Username = "'.$username.'"';
+				$disable = mysqli_query($connect, $query_disable) or die(mysqli_error($connect));
 				echo "Eliminado $type $username";
 			}
 	}
