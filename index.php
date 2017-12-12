@@ -226,6 +226,10 @@ body {font-size:16px;}
 							include 'showProfile.php';
 							break;
 
+						case 'updateActivity' :
+							include'updateActivity.php';
+							break;
+
 						default:
 							include ('home.php');
 							break;	
