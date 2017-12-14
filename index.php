@@ -201,29 +201,13 @@ body {font-size:16px;}
 						case 'registDay' :
 							include 'registDay.php';
 							break;
-
-						case 'editInfo' :
-							include 'editInfo.php';
-							break;
-
-						case 'editContact' :
-							include 'editContact.php';
-							break;
-						
-						case 'editData' :
-							include 'editData.php';
-							break;
-
-						case 'editAccount' :
-							include 'editAccount.php';
-							break;
-							
-						case 'userProfile' :
-							include 'userProfile.php';
-							break;
 						
 						case 'showProfile' :
 							include 'showProfile.php';
+							break;
+						
+						case 'editProfile' :
+							include 'editProfile.php';
 							break;
 
 						case 'updateActivity' :

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 12-Dez-2017 às 03:16
+-- Generation Time: 14-Dez-2017 às 23:25
 -- Versão do servidor: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `comida_dia` (
   `V` int(11) NOT NULL,
   PRIMARY KEY (`C_ID`),
   KEY `U_ID` (`U_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 COMMENT='Alimentação Diária';
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1 COMMENT='Alimentação Diária';
 
 --
 -- Extraindo dados da tabela `comida_dia`
@@ -96,7 +96,18 @@ CREATE TABLE IF NOT EXISTS `comida_dia` (
 
 INSERT INTO `comida_dia` (`C_ID`, `U_ID`, `Leite`, `Pao`, `Ovos`, `Peixe`, `Vaca`, `Frango`, `Vegetais`, `Batata`, `Arroz`, `Fruta`, `T`, `V`) VALUES
 (1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+(2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(4, 1, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(6, 1, 2, 1, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0),
+(7, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(8, 1, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(9, 1, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 0, 0),
+(10, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(11, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(12, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(13, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -182,7 +193,7 @@ CREATE TABLE IF NOT EXISTS `utente` (
 --
 
 INSERT INTO `utente` (`U_ID`, `Nome`, `Username`, `Password`, `Gen`, `DataDeNascimento`, `Morada`, `Tel`, `CS`, `Peso`, `Altura`, `Fotografia`, `Email`, `Tipo`, `Data de Registo`, `Actividade`) VALUES
-(1, 'JosÃ© Francisco Fernandes', 'ze90', 'ze90', 'male', '1990-10-09', '', 963456714, 142316765, 85, 173, 0x52756120646f7320426f6d626569726f73, 'jose', 'utente', '2017-12-09 19:54:02', 1);
+(1, 'JosÃ© Francisco Fernandes', 'ze90', 'ze90', 'male', '1990-10-09', 'Rua Sesamo', 963456714, 142316765, 90, 173, 0x52756120646f7320426f6d626569726f73, 'jose@campus.fct.unl.pt', 'utente', '2017-12-09 19:54:02', 1);
 
 --
 -- Constraints for dumped tables

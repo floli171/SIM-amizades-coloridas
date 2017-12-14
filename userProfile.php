@@ -59,6 +59,16 @@
 				</tr>
 				<tr>
 					<td>
+						Utilizador: 
+					</td>
+					<td>
+						<?php
+							echo $username;
+						?>
+					</td>
+				</tr>
+				<tr>
+					<td>
 						Cart&atilde;o de Sa&uacute;de:
 					</td>
 					<td>
@@ -67,8 +77,6 @@
 						?>
 					</td>
 				</tr>
-	<tr>
-		<td>
 				<tr>
 					<td>
 						Morada: 
@@ -89,9 +97,9 @@
 						?>
 					</td>
 				</tr>
-				</tr>
+				<tr>
 					<td>
-						<br>E-mail: 
+						E-mail: 
 					</td>
 					<td>
 						<?php
@@ -142,10 +150,11 @@
 				<tr>
 					<td>
 						<?php
-							echo "<a href='http://localhost/SIM/index.php?operacao=dailyInfo'> Registar Atividade Diária de $username </a>";
+							echo "<a href='http://localhost/SIM/index.php?operacao=dailyInfo&profile=$username'> Registar Atividade Diária de $username </a>";
 						?>
 						
 					</td>
+				</tr>
 		</table>
 		</td>
 	</tr>

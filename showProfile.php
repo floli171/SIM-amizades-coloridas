@@ -6,7 +6,13 @@
 
 <?php
 
-	$profile = $_SESSION["username"];
+	if($_SESSION['authuser']==1){
+		$profile = $_SESSION["username"];
+	}
+	else{
+		$profile = $_GET["profile"];
+	}
+	
 	$connect = mysqli_connect('localhost', 'root', '', 'sim') or die(mysqli_error($connect)); //conecta a base de dados sim
 
 	
@@ -16,7 +22,7 @@
 	$row_info = mysqli_fetch_array($result_info);
 	$name = $row_info['Nome'];
 	$username = $row_info['Username'];
-	//$password = $row_info[2];
+	$password = $row_info['Password'];
 	$gen = $row_info['Gen'];
 	$dateofbirth = $row_info['DataDeNascimento'];
 	$address = $row_info['Morada'];
@@ -58,6 +64,21 @@
 					<td>
 						<input type = "text" name="username" value="<?php echo $username?>" disabled>
 					</td>
+					<?php
+						if($_SESSION["authuser"] == 1){
+							echo "<tr>";
+							echo "<td>";
+							echo "Password"; 
+							echo "</td>";
+							echo "<td>";
+							echo '<input type = "password" name="password" id="password" value="'.$password.'" disabled>';
+							echo "</td>";
+							echo "<td>";
+							echo '<input type = "button" name="editar" value="editar" onclick="myFunction(\'password\')">';
+							echo  "</td>";
+							echo "</tr>";
+						}
+					?>
 				</tr>
 				<tr>
 					<td>
@@ -74,9 +95,13 @@
 					<td>
 						<input type = "text" name="cardnumber" id="cardnumber" value="<?php echo $CS?>" disabled>
 					</td>
-					<td>
-						<input type = "button" name="editar" value="editar" onclick="myFunction('cardnumber')">
-					</td>
+					<?php
+						if($_SESSION["authuser"] == 1){
+							echo "<td>";
+							echo '<input type = "button" name="editar" value="editar" onclick="myFunction(\'cardnumber\')">';
+							echo  "</td>";
+						}
+					?>
 				</tr>
 	<tr>
 		<td>
@@ -85,11 +110,15 @@
 						Morada: 
 					</td>
 					<td>
-						<input type = "text" name="date of birth" id="address" value="<?php echo $address?>" disabled>
+						<input type = "text" name="address" id="address" value="<?php echo $address?>" disabled>
 					</td>
-					<td>
-						<input type = "button" name="editar" value="editar" onclick="myFunction('address')">
-					</td>
+					<?php
+						if($_SESSION["authuser"] == 1){
+							echo "<td>";
+							echo '<input type = "button" name="editar" value="editar" onclick="myFunction(\'address\')">';
+							echo  "</td>";
+						}
+					?>
 				</tr>
 				<tr>
 					<td>
@@ -98,20 +127,28 @@
 					<td>
 						<input type = "text" name="cellphone" id="cellphone" value="<?php echo $cellphone?>" disabled>
 					</td>
-					<td>
-						<input type = "button" name="editar" value="editar" onclick="myFunction('cellphone')">
-					</td>
+					<?php
+						if($_SESSION["authuser"] == 1){
+							echo "<td>";
+							echo '<input type = "button" name="editar" value="editar" onclick="myFunction(\'cellphone\')">';
+							echo  "</td>";
+						}
+					?>
 				</tr>
 				</tr>
 					<td>
-						<br>E-mail: 
+						E-mail: 
 					</td>
 					<td>
 						<input type = "text" name="email" id="email" value="<?php echo $email?>" disabled>
 					</td>
-					<td>
-						<input type = "button" name="editar" value="editar" onclick="myFunction('email')">
-					</td>
+					<?php
+						if($_SESSION["authuser"] == 1){
+							echo "<td>";
+							echo '<input type = "button" name="editar" value="editar" onclick="myFunction(\'email\')">';
+							echo  "</td>";
+						}
+					?>
 				</tr>
 				<tr>
 					<td>
@@ -120,9 +157,13 @@
 					<td>
 						<input type = "text" name="weight" id="weight" value="<?php echo $weight?>" disabled>
 					</td>
-					<td>
-						<input type = "button" name="editar" value="editar" onclick="myFunction('weight')">
-					</td>
+					<?php
+						if($_SESSION["authuser"] == 1){
+							echo "<td>";
+							echo '<input type = "button" name="editar" value="editar" onclick="myFunction(\'weight\')">';
+							echo  "</td>";
+						}
+					?>
 				</tr>
 				<tr>
 					<td>
@@ -131,9 +172,13 @@
 					<td>
 						<input type = "text" name="height" id="height" value="<?php echo $height?>" disabled>
 					</td>
-					<td>
-						<input type = "button" name="editar" value="editar" onclick="myFunction('height')">
-					</td>
+					<?php
+						if($_SESSION["authuser"] == 1){
+							echo "<td>";
+							echo '<input type = "button" name="editar" value="editar" onclick="myFunction(\'height\')">';
+							echo  "</td>";
+						}
+					?>
 				</tr>
 				<tr>
 					<td>
@@ -145,12 +190,26 @@
 				</tr>
 				<tr>
 					<td>
-						<input type = "submit" name="editar" value="submit" disabled>
+						<input type = "submit" name="editar" value="submit">
 					</td>
-					<td>
-						<input type = "reset" name="reset" value="reset">
-					</td>
+					<?php
+						if($_SESSION["authuser"] == 1){
+							echo "<td>";
+							echo '<input type = "reset" name="reset" value="reset">';
+							echo  "</td>";
+						}
+					?>
 				</tr>
+					<?php
+							if($_SESSION["authuser"] == 4){
+								echo "<tr>";
+								echo "<td>";
+								echo "<a href='http://localhost/SIM/index.php?operacao=dailyInfo&profile=$username'> Registar Atividade Diária de $username </a>";
+								echo "</td>";
+								echo "<td>";
+							}
+						?>
+			</form>			
 		</table>
 		</td>
 	</tr>

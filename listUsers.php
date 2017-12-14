@@ -35,7 +35,7 @@ $connect = mysqli_connect('localhost', 'root', '', 'sim') or die(mysqli_error($c
 							echo "</td>";
 
 							echo "<td>";
-								echo "<a href='http://localhost/SIM/index.php?operacao=userProfile&profile=$i'>$username</a>";
+								echo "<a href='http://localhost/SIM/index.php?operacao=showProfile&profile=$username'>$username</a>";
 							echo "</td>";
 
 							echo "<td>";

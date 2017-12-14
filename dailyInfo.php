@@ -3,10 +3,49 @@
 <script>
 	function myFunction(food, portion) {
 		if (document.getElementById(food).checked == true) {
-  			document.getElementById(portion).disabled = false
+  			document.getElementById(portion).disabled = false;
+  		}
+		else if(document.getElementById(food).checked == false) {
+  			document.getElementById(portion).disabled = true;
   		}
   	}
+	
+	function checkboxes(food, portion) {
+		
+		if(document.getElementById('checkall').checked == true){
+			if(document.getElementById(food).checked == false) {
+				document.getElementById(portion).disabled = false;
+				document.getElementById(food).checked = true;
+			}
+		}
+		else{
+			if(document.getElementById(food).checked == true) {
+  			document.getElementById(portion).disabled = true;
+			document.getElementById(food).checked = false;
+			}
+		}
+  	}
+	
+	function checkAll(food1, food2, food3, food4, food5, food6, food7, food8, food9, food10, portion1, portion2, portion3, portion4, portion5, portion6, portion7, portion8, portion9, portion10) {
+
+		var foods = [food1, food2, food3, food4, food5, food6, food7, food8, food9, food10];
+		var portions = [portion1, portion2, portion3, portion4, portion5, portion6, portion7, portion8, portion9, portion10];
+
+		for (var i = 0; i < foods.length; i++) {
+			checkboxes(foods[i], portions[i]);
+		}
+	}
 </script>
+
+<?php
+
+	if($_SESSION['authuser']==4){
+		$profile = $_GET["profile"];
+	}
+	else{
+		$profile = 0;
+	}
+?>
 
 <table border="0">
 	<tr>
@@ -16,12 +55,18 @@
 	</tr>
 	<tr>
 		<td align="right">
-			<form method="POST" action="index.php?operacao=registDay">
+			<form method="POST" action="index.php?operacao=registDay&username=$profile">
 			
 			<input type="checkbox" name="milk" id="milk" onclick="myFunction('milk', 'portionMilk')">
 		</td>
 		<td>
 			Leite
+		</td>
+		<td>
+			 
+		</td>
+		<td>
+			<input type="checkbox" id="checkall" onclick="checkAll('milk', 'bread', 'egg', 'fish', 'beef', 'chicken', 'vegetable', 'potato', 'rice', 'fruit', 'portionMilk', 'portionBread', 'portionEgg', 'portionFish', 'portionBeef', 'portionChicken', 'portionVegetable', 'portionPotato', 'portionRice', 'portionFruit')"> Selecionar tudo
 		</td>
 	</tr>
 	<tr>
@@ -212,8 +257,9 @@
 		</td>
 	</tr>
 </table>
+	<input type = "hidden" name = "username" value = '<?php echo "$profile" ?>'>
+<p><input type="Submit" name="Submit" id="submit" value="Submit" ></p></form></p>
 
-<br><p><input type="Submit" name="Submit" value="Submit"></p></form>
 
 <!-- sugestões
 		a partir do momento em que o utilizador coloca a informação há um lock e para alterar é necessário clicar no botão "editar"-->
