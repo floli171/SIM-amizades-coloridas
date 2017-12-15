@@ -1,7 +1,7 @@
 <?php
 							if(isset($_SESSION["authuser"])) { //verifica se já existe esta variável
 
-								if($_SESSION["authuser"]==0) { //se o utilizador ainda nao estiver autenticado apresenta Login com hiperligação para o formulário de login em showLogin.php
+								if($_SESSION["authuser"]<=0) { //se o utilizador ainda nao estiver autenticado apresenta Login com hiperligação para o formulário de login em showLogin.php
 									echo "<a href='http://localhost/SIM/index.php?operacao=showLogin'>Login</a>";
 								}
 								if($_SESSION["authuser"]>0) { //se o utilizador já estiver autenticado apresenta Logout com respectiva hiperligação
@@ -19,7 +19,7 @@
 								<?php
 								if(isset($_SESSION["authuser"])) { //verifica se esta variável não tem valor null
 
-									if($_SESSION["authuser"]==4) { //se o utilizador já estiver autenticado apresenta Listar com hiperligação para listUsers.php com número de pagina inicial (1) e número de entradas por página (10)
+									if($_SESSION["authuser"]>1) { //se o utilizador já estiver autenticado apresenta Listar com hiperligação para listUsers.php com número de pagina inicial (1) e número de entradas por página (10)
 										echo "<a href='http://localhost/SIM/index.php?operacao=listUsers&pageNumber=1&pageSize=10'>Listar Utilizadores</a>";
 									}
 									else if($_SESSION["authuser"]==0) { //se o utilizador ainda nao estiver autenticado apresenta Registar com hiperligação para o formulário de registo em showRegistry.php
@@ -40,14 +40,17 @@
 
 									if($_SESSION["authuser"]==1) {
 										echo "<a href='http://localhost/SIM/index.php?operacao=dailyInfo'>Ficha Di&aacuteria</a>";
-										echo "<br>";
+										echo "</td>";
+										echo "</tr>";
+										echo "<tr>";
+										echo "<td>";
 										echo "<a href='http://localhost/SIM/index.php?operacao=showProfile'>Editar Informa&ccedil;&atilde;o</a>";
+										echo "</td>";
+										echo "</tr>";
 									}
 								}
 
 								?>
-							</td>
-						</tr>
 						<tr>
 							<td>
 								<?php

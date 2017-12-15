@@ -20,6 +20,7 @@
 	$query_info = "SELECT * FROM utente WHERE Username = '".$profile."'";
 	$result_info = mysqli_query($connect, $query_info) or die (mysqli_error($connect));
 	$row_info = mysqli_fetch_array($result_info);
+	$id = $row_info['U_ID'];
 	$name = $row_info['Nome'];
 	$username = $row_info['Username'];
 	$password = $row_info['Password'];
@@ -40,6 +41,42 @@
 		<td>
 			<table border="0">
 				<form method="POST" action="http://localhost/SIM/index.php?operacao=editProfile">
+				<?php
+					if($_SESSION["authuser"] == 3){
+						echo "<tr>";
+							echo "<td>";
+								echo "Utilizador: ";
+						echo "</td>";
+						echo "<td>";
+							echo '<input type = "text" name="username" value="'.$id.'" disabled>';
+						echo "</td>";
+					}
+					
+					
+					if($_SESSION["authuser"] != 3){
+						echo "<tr>";
+							echo "<td>";
+								echo "Utilizador: ";
+						echo "</td>";
+						echo "<td>";
+							echo '<input type = "text" name="username" value="'.$username.'" disabled>';
+						echo "</td>";
+					
+						if($_SESSION["authuser"] == 1){
+							echo "<tr>";
+							echo "<td>";
+							echo "Password"; 
+							echo "</td>";
+							echo "<td>";
+							echo '<input type = "password" name="password" id="password" value="'.$password.'" disabled>';
+							echo "</td>";
+							echo "<td>";
+							echo '<input type = "button" name="editar" value="editar" onclick="myFunction(\'password\')">';
+							echo  "</td>";
+							echo "</tr>";
+						}
+					}
+				?>
 				<tr>
 					<td>
 						<p>Género</p>
@@ -57,99 +94,80 @@
 						<input type = "text" name="date of birth" value="<?php echo $dateofbirth?>" disabled>
 					</td>
 				</tr>
-				<tr>
-					<td>
-						Utilizador: 
-					</td>
-					<td>
-						<input type = "text" name="username" value="<?php echo $username?>" disabled>
-					</td>
-					<?php
-						if($_SESSION["authuser"] == 1){
-							echo "<tr>";
+				<?php		
+					
+					if($_SESSION["authuser"] != 3){	
+						
+						echo "<tr>";
 							echo "<td>";
-							echo "Password"; 
+								echo "Nome Completo: ";
 							echo "</td>";
 							echo "<td>";
-							echo '<input type = "password" name="password" id="password" value="'.$password.'" disabled>';
+								echo '<input type = "text" name="name" value="'.$name.'" disabled>';
+							echo "</td>";
+						echo "</tr>";
+						
+						echo "<tr>";
+							echo "<td>";
+								echo "Cart&atilde;o de Sa&uacute;de:";
 							echo "</td>";
 							echo "<td>";
-							echo '<input type = "button" name="editar" value="editar" onclick="myFunction(\'password\')">';
-							echo  "</td>";
-							echo "</tr>";
-						}
-					?>
-				</tr>
-				<tr>
-					<td>
-						Nome Completo: 
-					</td>
-					<td>
-						<input type = "text" name="name" value="<?php echo $name?>" disabled>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						Cart&atilde;o de Sa&uacute;de:
-					</td>
-					<td>
-						<input type = "text" name="cardnumber" id="cardnumber" value="<?php echo $CS?>" disabled>
-					</td>
-					<?php
-						if($_SESSION["authuser"] == 1){
+								echo '<input type = "text" name="cardnumber" id="cardnumber" value="'.$CS.'" disabled>';
+							echo "</td>";
+						
+							if($_SESSION["authuser"] == 1){
+								echo "<td>";
+									echo '<input type = "button" name="editar" value="editar" onclick="myFunction(\'cardnumber\')">';
+								echo  "</td>";
+							}
+						echo "</tr>";
+						
+						echo "<tr>";
 							echo "<td>";
-							echo '<input type = "button" name="editar" value="editar" onclick="myFunction(\'cardnumber\')">';
-							echo  "</td>";
-						}
-					?>
-				</tr>
-	<tr>
-		<td>
-				<tr>
-					<td>
-						Morada: 
-					</td>
-					<td>
-						<input type = "text" name="address" id="address" value="<?php echo $address?>" disabled>
-					</td>
-					<?php
-						if($_SESSION["authuser"] == 1){
+								echo "Morada: ";
+							echo "</td>";
 							echo "<td>";
-							echo '<input type = "button" name="editar" value="editar" onclick="myFunction(\'address\')">';
-							echo  "</td>";
-						}
-					?>
-				</tr>
-				<tr>
-					<td>
-						Telemóvel: 
-					</td>
-					<td>
-						<input type = "text" name="cellphone" id="cellphone" value="<?php echo $cellphone?>" disabled>
-					</td>
-					<?php
-						if($_SESSION["authuser"] == 1){
+								echo '<input type = "text" name="address" id="address" value="'.$address.'" disabled>';
+							echo "</td>";
+					
+							if($_SESSION["authuser"] == 1){
+								echo "<td>";
+									echo '<input type = "button" name="editar" value="editar" onclick="myFunction(\'address\')">';
+								echo  "</td>";
+							}
+						echo "</tr>";
+						
+						echo "<tr>";
 							echo "<td>";
-							echo '<input type = "button" name="editar" value="editar" onclick="myFunction(\'cellphone\')">';
-							echo  "</td>";
-						}
-					?>
-				</tr>
-				</tr>
-					<td>
-						E-mail: 
-					</td>
-					<td>
-						<input type = "text" name="email" id="email" value="<?php echo $email?>" disabled>
-					</td>
-					<?php
-						if($_SESSION["authuser"] == 1){
+								echo "Telemóvel: ";
+							echo "</td>";
 							echo "<td>";
-							echo '<input type = "button" name="editar" value="editar" onclick="myFunction(\'email\')">';
-							echo  "</td>";
-						}
-					?>
-				</tr>
+								echo '<input type = "text" name="cellphone" id="cellphone" value="'.$cellphone.'" disabled>';
+							echo "</td>";
+					
+							if($_SESSION["authuser"] == 1){
+								echo "<td>";
+									echo '<input type = "button" name="editar" value="editar" onclick="myFunction(\'cellphone\')">';
+								echo  "</td>";
+							}
+						echo "</tr>";
+						
+						echo "<tr>";
+							echo "<td>";
+								echo "E-mail: ";
+							echo "</td>";
+							echo "<td>";
+								echo '<input type = "text" name="email" id="email" value="'.$email.'" disabled>';
+							echo "</td>";
+
+							if($_SESSION["authuser"] == 1){
+								echo "<td>";
+									echo '<input type = "button" name="editar" value="editar" onclick="myFunction(\'email\')">';
+								echo  "</td>";
+							}
+						echo "</tr>";
+					}
+				?>
 				<tr>
 					<td>
 						Peso (kg): 
@@ -180,18 +198,26 @@
 						}
 					?>
 				</tr>
-				<tr>
-					<td>
-						Fotografia:
-					</td>
-					<td>
-						<input type = "file" name="picture" value="<?php echo $pic?>" disabled>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<input type = "submit" name="editar" value="submit">
-					</td>
+				<?php
+				
+					if($_SESSION["authuser"] != 3){
+						echo "<tr>";
+						echo "<td>";
+							echo "Fotografia:";
+						echo "</td>";
+						echo "<td>";
+							echo '<input type = "file" name="picture" value="'.$pic.'" disabled>';
+						echo "</td>";
+						echo "</tr>";
+					}
+					
+					if($_SESSION["authuser"] == 1){
+						echo "<tr>";
+						echo "<td>";
+							echo '<input type = "submit" name="editar" value="submit">';
+						echo "</td>";
+					}
+				?>
 					<?php
 						if($_SESSION["authuser"] == 1){
 							echo "<td>";

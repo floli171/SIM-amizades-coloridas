@@ -10,7 +10,11 @@ $connect = mysqli_connect('localhost', 'root', '', 'sim') or die(mysqli_error($c
 <table width="500px" height="350px" border="1" align="center" >
 			<tr bgcolor="33FF33"> <!-- primeira linha com o nome das entradas -->
 				<th> id </th>
-				<th> Nome de Utilizador </th>
+				<?php
+					if($_SESSION["authuser"] != 3){
+						echo "<th> Nome de Utilizador </th>";
+					}
+				?>
 				<th> Genero </th>
 				<th> Data de Registo </th>
 			</tr>
@@ -29,15 +33,19 @@ $connect = mysqli_connect('localhost', 'root', '', 'sim') or die(mysqli_error($c
 					
 						//executa várias vezes criando as várias linhas da lista de utilizadores
 						echo "<tr>";
-
-							echo "<td>";
-								echo "$i";
-							echo "</td>";
-
-							echo "<td>";
-								echo "<a href='http://localhost/SIM/index.php?operacao=showProfile&profile=$username'>$username</a>";
-							echo "</td>";
-
+							if($_SESSION["authuser"] == 3){
+								echo "<td>";
+									echo "<a href='http://localhost/SIM/index.php?operacao=showProfile&profile=$username'>$i</a>";
+								echo "</td>";
+							}
+							else if($_SESSION["authuser"] != 3){
+								echo "<td>";
+									echo "$i";
+								echo "</td>";
+								echo "<td>";
+									echo "<a href='http://localhost/SIM/index.php?operacao=showProfile&profile=$username'>$username</a>";
+								echo "</td>";
+							}
 							echo "<td>";
 								echo "$gender";
 							echo "</td>";

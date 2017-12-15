@@ -25,7 +25,7 @@ else if($_SESSION["authuser"]==4) {
 else if($_SESSION["authuser"]==-1) {
 			echo "Login incorrecto";
 			echo "<br>";
-			echo "Esta conta foi desactivada por um Assistente. Reactive a sua conta aqui";
+			echo "Esta conta foi desactivada por um Assistente. Reactive a sua conta <a href='http://localhost/SIM/index.php?operacao=updateActivity'>aqui</a>";
 		}
 		
 else {
