@@ -25,6 +25,6 @@ ACTUALIZAÇÕES
  Update nas tabelas assistente, investigador, nutricionista e substituiçao de utentes por utente (alteraçao nas querys em que é chamado). Já é possível inserir uma fotografia de tamanho limitado. O registo é feito com sucesso a partir do site
  Floli
 
-14/12/2017
-Funcionalidades do Assistente e do Utente acabadas
+15/12/2017
+Funcionalidades do Assistente, Utente e Investigador acabadas. Falta só o Nutricionista que está relacionado com as cenas do CART
 André	
