@@ -222,6 +222,22 @@ body {font-size:16px;}
 						case 'showCalendar':
 							include 'showCalendar.php';
 							break;
+						
+						case 'showNutri':
+							include 'showNutri.php';
+							break;
+						
+						case 'editNutri':
+							include 'editNutri.php';
+							break;
+						
+						case 'showFirstSub':
+							include 'showFirstSub.php';
+							break;
+						
+						case 'firstSub':
+							include 'firstSub.php';
+							break;
 
 						default:
 							include ('home.php');

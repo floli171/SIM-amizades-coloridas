@@ -19,9 +19,8 @@ form {
 						<p>Género</p>
 					</td>
 					<td>
-						<input type="radio" name="gender" value="male">Masculino<br>
-						<input type="radio" name="gender" value="female">Feminino<br>
-						<input type="radio" name="gender" value="other">Outro<br>
+						<input type="radio" name="gender" value="Masculino">Masculino<br>
+						<input type="radio" name="gender" value="Feminino">Feminino<br>
 					</td>
 				</tr>
 				<tr>

@@ -5,42 +5,41 @@ $profile = $_GET["profile"];
 
 $connect = mysqli_connect('localhost', 'root', '', 'sim') or die(mysqli_error($connect)); //conecta a base de dados sim
 
-$query_registo_dia = 'SELECT * FROM comida_dia; WHERE U_ID = "'.$profile.'" AND C_ID = "1"';
+$query_registo_dia = 'SELECT * FROM comida_dia WHERE U_ID = '.$profile.' AND C_ID = 16';
 
 $get_registo_dia = mysqli_query($connect, $query_registo_dia) or die(mysqli_error($connect));
 $alimentos = mysqli_fetch_array($get_registo_dia);
 
-$LEITE = ['Leite'];
-$PAO = ['Pao'];
-$OVO = ['Ovos'];
-$PEIXE = ['Peixe'];
-$VACA = ['Vaca'];
-$FRANGO = ['Frango'];
-$VEGETAIS = ['Vegetais'];
-$BATATA = ['Batata'];
-$ARROZ = ['Arroz'];
-$FRUTA = ['Fruta'];
-$TEMPO = ['T'];
-$VELOCIDADE = ['V'];
+$LEITE = $alimentos['Leite'];
+$PAO = $alimentos['Pao'];
+$OVO = $alimentos['Ovos'];
+$PEIXE = $alimentos['Peixe'];
+$CARNE_VACA = $alimentos['Vaca'];
+$FRANGO = $alimentos['Frango'];
+$VEGETAIS = $alimentos['Vegetais'];
+$BATATA = $alimentos['Batata'];
+$ARROZ = $alimentos['Arroz'];
+$FRUTA = $alimentos['Fruta'];
+$TEMPO = $alimentos['T'];
+$VELOCIDADE = $alimentos['V'];
 
 
 //vai buscar ao user os dados necessários para o SAD
-$query_user = 'SELECT (Gen, Peso, Altura) FROM utente WHERE Username = ""';
+$query_user = 'SELECT Gen, Peso, Altura FROM utente WHERE U_ID = "'.$profile.'"';
 $result_user = mysqli_query($connect, $query_user) or die (mysqli_error($connect));
 $info_user = mysqli_fetch_array($result_user);
 
-$SEXO = ['Gen'];
+$PESO = $info_user['Peso'];
+$ALTURA = $info_user['Altura'];
+$SEXO = $info_user['Gen'];
   
-if($SEXO == 'Masculino') {
+if(strcmp($SEXO,'Masculino')==0) {
   $SEXO=0;
 }
 else {
   $SEXO=1;
 }
 
-
-$PESO = ['Peso'];
-$ALTURA = = ['Altura'];
 
 $ACTI_FISICA = $TEMPO*$VELOCIDADE*$PESO;
 
@@ -55,7 +54,7 @@ if($ACTI_FISICA <1.2) {
 
 
 //Calcula e devolve idade na variável $age
-$query_age = "SELECT TIMESTAMPDIFF(year, (SELECT DataDeNascimento FROM utente WHERE Username = '""'), CURDATE())";
+$query_age = "SELECT TIMESTAMPDIFF(year, (SELECT DataDeNascimento FROM utente WHERE U_ID = '".$profile."'), CURDATE())";
 $result_age = mysqli_query($connect, $query_age) or die (mysqli_error($connect));
 $rows = mysqli_fetch_row($result_age);
 $IDADE = $rows[0];
@@ -154,8 +153,8 @@ if
 )
 
 {
-    terminalNode = 1;
-    class = 2;
+    $terminalNode = 1;
+    $class = 2;
 }
 
 /*Terminal Node 2*/
@@ -253,8 +252,8 @@ if
 )
 
 {
-    terminalNode = 2;
-    class = 1;
+    $terminalNode = 2;
+    $class = 1;
 }
 
 /*Terminal Node 3*/
@@ -347,8 +346,8 @@ if
 )
 
 {
-    terminalNode = 3;
-    class = 1;
+    $terminalNode = 3;
+    $class = 1;
 }
 
 /*Terminal Node 4*/
@@ -446,8 +445,8 @@ if
 )
 
 {
-    terminalNode = 4;
-    class = 1;
+    $terminalNode = 4;
+    $class = 1;
 }
 
 /*Terminal Node 5*/
@@ -540,8 +539,8 @@ if
 )
 
 {
-    terminalNode = 5;
-    class = 2;
+    $terminalNode = 5;
+    $class = 2;
 }
 
 /*Terminal Node 6*/
@@ -613,8 +612,8 @@ if
 )
 
 {
-    terminalNode = 6;
-    class = 2;
+    $terminalNode = 6;
+    $class = 2;
 }
 
 /*Terminal Node 7*/
@@ -718,8 +717,8 @@ if
 )
 
 {
-    terminalNode = 7;
-    class = 2;
+    $terminalNode = 7;
+    $class = 2;
 }
 
 /*Terminal Node 8*/
@@ -778,8 +777,8 @@ if
 )
 
 {
-    terminalNode = 8;
-    class = 2;
+    $terminalNode = 8;
+    $class = 2;
 }
 
 /*Terminal Node 9*/
@@ -837,8 +836,8 @@ if
 )
 
 {
-    terminalNode = 9;
-    class = 1;
+    $terminalNode = 9;
+    $class = 1;
 }
 
 /*Terminal Node 10*/
@@ -908,8 +907,8 @@ if
 )
 
 {
-    terminalNode = 10;
-    class = 1;
+    $terminalNode = 10;
+    $class = 1;
 }
 
 /*Terminal Node 11*/
@@ -966,8 +965,8 @@ if
 )
 
 {
-    terminalNode = 11;
-    class = 2;
+    $terminalNode = 11;
+    $class = 2;
 }
 
 /*Terminal Node 12*/
@@ -1035,8 +1034,8 @@ if
 )
 
 {
-    terminalNode = 12;
-    class = 2;
+    $terminalNode = 12;
+    $class = 2;
 }
 
 /*Terminal Node 13*/
@@ -1109,8 +1108,8 @@ if
 )
 
 {
-    terminalNode = 13;
-    class = 2;
+    $terminalNode = 13;
+    $class = 2;
 }
 
 /*Terminal Node 14*/
@@ -1173,8 +1172,8 @@ if
 )
 
 {
-    terminalNode = 14;
-    class = 1;
+    $terminalNode = 14;
+    $class = 1;
 }
 
 /*Terminal Node 15*/
@@ -1260,8 +1259,8 @@ if
 )
 
 {
-    terminalNode = 15;
-    class = 1;
+    $terminalNode = 15;
+    $class = 1;
 }
 
 /*Terminal Node 16*/
@@ -1337,8 +1336,8 @@ if
 )
 
 {
-    terminalNode = 16;
-    class = 1;
+    $terminalNode = 16;
+    $class = 1;
 }
 
 /*Terminal Node 17*/
@@ -1410,8 +1409,8 @@ if
 )
 
 {
-    terminalNode = 17;
-    class = 0;
+    $terminalNode = 17;
+    $class = 0;
 }
 
 /*Terminal Node 18*/
@@ -1512,8 +1511,8 @@ if
 )
 
 {
-    terminalNode = 18;
-    class = 1;
+    $terminalNode = 18;
+    $class = 1;
 }
 
 /*Terminal Node 19*/
@@ -1592,8 +1591,8 @@ if
 )
 
 {
-    terminalNode = 19;
-    class = 1;
+    $terminalNode = 19;
+    $class = 1;
 }
 
 /*Terminal Node 20*/
@@ -1660,8 +1659,8 @@ if
 )
 
 {
-    terminalNode = 20;
-    class = 2;
+    $terminalNode = 20;
+    $class = 2;
 }
 
 /*Terminal Node 21*/
@@ -1716,8 +1715,8 @@ if
 )
 
 {
-    terminalNode = 21;
-    class = 0;
+    $terminalNode = 21;
+    $class = 0;
 }
 
 /*Terminal Node 22*/
@@ -1792,8 +1791,8 @@ if
 )
 
 {
-    terminalNode = 22;
-    class = 0;
+    $terminalNode = 22;
+    $class = 0;
 }
 
 /*Terminal Node 23*/
@@ -1879,8 +1878,8 @@ if
 )
 
 {
-    terminalNode = 23;
-    class = 1;
+    $terminalNode = 23;
+    $class = 1;
 }
 
 /*Terminal Node 24*/
@@ -1980,8 +1979,8 @@ if
 )
 
 {
-    terminalNode = 24;
-    class = 0;
+    $terminalNode = 24;
+    $class = 0;
 }
 
 /*Terminal Node 25*/
@@ -2043,8 +2042,8 @@ if
 )
 
 {
-    terminalNode = 25;
-    class = 0;
+    $terminalNode = 25;
+    $class = 0;
 }
 
 /*Terminal Node 26*/
@@ -2099,8 +2098,8 @@ if
 )
 
 {
-    terminalNode = 26;
-    class = 0;
+    $terminalNode = 26;
+    $class = 0;
 }
 
 /*Terminal Node 27*/
@@ -2184,8 +2183,8 @@ if
 )
 
 {
-    terminalNode = 27;
-    class = 1;
+    $terminalNode = 27;
+    $class = 1;
 }
 
 /*Terminal Node 28*/
@@ -2252,8 +2251,8 @@ if
 )
 
 {
-    terminalNode = 28;
-    class = 0;
+    $terminalNode = 28;
+    $class = 0;
 }
 
 /*Terminal Node 29*/
@@ -2353,8 +2352,8 @@ if
 )
 
 {
-    terminalNode = 29;
-    class = 0;
+    $terminalNode = 29;
+    $class = 0;
 }
 
 /*Terminal Node 30*/
@@ -2414,8 +2413,8 @@ if
 )
 
 {
-    terminalNode = 30;
-    class = 2;
+    $terminalNode = 30;
+    $class = 2;
 }
 
 /*Terminal Node 31*/
@@ -2480,8 +2479,8 @@ if
 )
 
 {
-    terminalNode = 31;
-    class = 0;
+    $terminalNode = 31;
+    $class = 0;
 }
 
 /*Terminal Node 32*/
@@ -2568,8 +2567,8 @@ if
 )
 
 {
-    terminalNode = 32;
-    class = 1;
+    $terminalNode = 32;
+    $class = 1;
 }
 
 /*Terminal Node 33*/
@@ -2625,8 +2624,8 @@ if
 )
 
 {
-    terminalNode = 33;
-    class = 0;
+    $terminalNode = 33;
+    $class = 0;
 }
 
 /*Terminal Node 34*/
@@ -2685,8 +2684,8 @@ if
 )
 
 {
-    terminalNode = 34;
-    class = 2;
+    $terminalNode = 34;
+    $class = 2;
 }
 
 /*Terminal Node 35*/
@@ -2767,8 +2766,8 @@ if
 )
 
 {
-    terminalNode = 35;
-    class = 0;
+    $terminalNode = 35;
+    $class = 0;
 }
 
 /*Terminal Node 36*/
@@ -2844,8 +2843,8 @@ if
 )
 
 {
-    terminalNode = 36;
-    class = 1;
+    $terminalNode = 36;
+    $class = 1;
 }
 
 /*Terminal Node 37*/
@@ -2937,8 +2936,8 @@ if
 )
 
 {
-    terminalNode = 37;
-    class = 1;
+    $terminalNode = 37;
+    $class = 1;
 }
 
 /*Terminal Node 38*/
@@ -3031,8 +3030,8 @@ if
 )
 
 {
-    terminalNode = 38;
-    class = 1;
+    $terminalNode = 38;
+    $class = 1;
 }
 
 /*Terminal Node 39*/
@@ -3117,8 +3116,8 @@ if
 )
 
 {
-    terminalNode = 39;
-    class = 2;
+    $terminalNode = 39;
+    $class = 2;
 }
 
 /*Terminal Node 40*/
@@ -3227,8 +3226,8 @@ if
 )
 
 {
-    terminalNode = 40;
-    class = 0;
+    $terminalNode = 40;
+    $class = 0;
 }
 
 /*Terminal Node 41*/
@@ -3338,8 +3337,8 @@ if
 )
 
 {
-    terminalNode = 41;
-    class = 0;
+    $terminalNode = 41;
+    $class = 0;
 }
 
 /*Terminal Node 42*/
@@ -3458,8 +3457,8 @@ if
 )
 
 {
-    terminalNode = 42;
-    class = 1;
+    $terminalNode = 42;
+    $class = 1;
 }
 
 /*Terminal Node 43*/
@@ -3547,8 +3546,8 @@ if
 )
 
 {
-    terminalNode = 43;
-    class = 0;
+    $terminalNode = 43;
+    $class = 0;
 }
 
 ?>

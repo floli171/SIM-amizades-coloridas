@@ -22,7 +22,15 @@
 			
 			$query_insert = 'INSERT INTO utente(Nome, Username, Password, Gen, DataDeNascimento, Morada, Tel, CS, Peso, Altura, Fotografia, Email) VALUES ("'.$_POST["name"].'", "'.$_POST["user"].'", "'.$_POST["pass"].'", "'.$_POST["gender"].'", "'.$_POST["year"].'-'.$_POST["month"].'-'.$_POST["day"].'", "'.$_POST["address"].'", "'.$_POST["phone"].'", "'.$_POST["cardnumber"].'", "'.$_POST["weight"].'", "'.$_POST["height"].'",  "$fotografia", "'.$_POST["email"].'" )';
 			$insert = mysqli_query($connect, $query_insert) or die(mysqli_error($connect));
-			echo "Registo com sucesso de $username"; 
+			$_SESSION["authuser"]=1;
+			$_SESSION["username"]=$_POST["user"];
+			$_SESSION["userpass"]=$_POST["pass"];
+			
+			echo "Registo com sucesso de $username";
+			echo "<br>";
+			echo "<br>";
+			echo "<a href='http://localhost/SIM/index.php?operacao=showFirstSub&profile=$username'><b> Agora registe a sua actividade diária dos últimos 3 dias </b></a>";
+		
 	}
 	else { //caso o Utilizador já exista
 			echo "Utilizador já existente";

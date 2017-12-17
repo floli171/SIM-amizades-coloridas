@@ -111,6 +111,7 @@ $connect = mysqli_connect('localhost', 'root', '', 'sim') or die(mysqli_error($c
 					$date=$uid_info['Data de Registo']; //Guarda o valor da data de criação do utilizador
 					$actv=$uid_info['Actividade'];
 					$tipo=$uid_info['Tipo'];
+					$nid=$uid_info['N_ID'];
 					
 					
 						//executa várias vezes criando as várias linhas da lista de utilizadores
@@ -136,8 +137,10 @@ $connect = mysqli_connect('localhost', 'root', '', 'sim') or die(mysqli_error($c
 							echo "</td>";
 							
 							echo "<td>";
-								if($actv == 0){echo "Inactivo";}
-								elseif($actv == 1){echo "Activo";}
+								if($actv == 0){echo "Inactivo <br>";}
+								elseif($actv == 1){echo "Activo <br>";}
+								if($nid == null){echo "S/ Nutricionista";}
+								elseif($nid != null){echo "C/ Nutricionista";}
 							echo "</td>";
 							
 						echo "</tr>";
@@ -162,7 +165,7 @@ $connect = mysqli_connect('localhost', 'root', '', 'sim') or die(mysqli_error($c
 							echo "</td>";
 							
 							echo "<td>";
-								echo "<a href='http://localhost/SIM/index.php?operacao=showProfile&profile=$username'>$username</a>";
+								echo "$username";
 							echo "</td>";
 							
 							echo "<td>";
@@ -204,7 +207,7 @@ $connect = mysqli_connect('localhost', 'root', '', 'sim') or die(mysqli_error($c
 							echo "</td>";
 							
 							echo "<td>";
-								echo "<a href='http://localhost/SIM/index.php?operacao=showProfile&profile=$username'>$username</a>";
+								echo "$username";
 							echo "</td>";
 							
 							echo "<td>";

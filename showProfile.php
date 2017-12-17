@@ -35,11 +35,19 @@
 	$pic = $row_info['Fotografia'];
 	$email = $row_info['Email'];
 	$actv = $row_info['Actividade'];
+	$nid = $row_info['N_ID'];
 
 	$query_age = "SELECT TIMESTAMPDIFF(year, (SELECT DataDeNascimento FROM utente WHERE Username = '".$profile."'), CURDATE())";
 	$result_age = mysqli_query($connect, $query_age) or die (mysqli_error($connect));
 	$rows = mysqli_fetch_row($result_age);
 	$age = $rows[0];
+	
+	if($nid!=null){
+		$query_nutri = "SELECT Username FROM nutricionista WHERE N_ID = '".$nid."'";
+		$nutri_result = mysqli_query($connect, $query_nutri) or die (mysqli_error($connect));
+		$nutri_info = mysqli_fetch_array($nutri_result);
+		$nutri = $nutri_info['Username'];
+	}
 
 ?>
 
@@ -59,8 +67,8 @@
 							echo '<input type = "text" name="username" value="'.$id.'" disabled>';
 						echo "</td>";
 						echo "<td>";
-							if($actv == 0){echo "Inactivo";}
-								elseif($actv == 1){echo "Activo";}
+							if($actv == 0){echo "<b>Inactivo</b> <br>";}
+								elseif($actv == 1){echo "<b>Activo</b> <br>";}
 						echo "</td>";
 					}
 					
@@ -74,8 +82,8 @@
 							echo '<input type = "text" name="username" value="'.$username.'" disabled>';
 						echo "</td>";
 						echo "<td>";
-							if($actv == 0){echo "Inactivo";}
-								elseif($actv == 1){echo "Activo";}
+							if($actv == 0){echo "<b>Inactivo</b>";}
+								elseif($actv == 1){echo "<b>Activo</b>";}
 						echo "</td>";
 					
 						if($_SESSION["authuser"] == 1){
@@ -98,8 +106,7 @@
 						<p>Género</p>
 					</td>
 					<td>
-						<input type="radio" name="gender" value="male" disabled checked>Masculino<br>
-						<input type="radio" name="gender" value="female" disabled >Feminino<br>
+						<input type="text" name="gender" value="<?php echo "$gen" ?>" disabled>
 					</td>
 				</tr>
 			<?php
@@ -268,9 +275,44 @@
 							else if(($_SESSION["authuser"] == 2) || ($_SESSION["authuser"] == 1)) {
 								echo "<tr>";
 								echo "<td>";
-								//$year = date("Y");
-								//$month = date("m");
 								echo "<a href='http://localhost/SIM/index.php?operacao=showCalendar&profile=$id'> Consultar Alimenta&ccedil;&atilde;o de $username </a>";
+								echo "</td>";
+								echo "<td>";
+							}
+						?>
+					
+					<?php
+							if($_SESSION["authuser"] == 4){
+								echo "<tr>";
+								echo "<td>";
+								echo "<a href='http://localhost/SIM/index.php?operacao=showNutri&pageNumber=1&pageSize=10&profile=$username'> Atribuir nutricionista a $username </a>";
+								echo "</td>";
+								echo "<td>";
+								
+								if($nid == null){
+									echo "<td>";
+									echo "<b> Sem Nutricionista Atribuido </b>";
+									echo "</td>";
+									}
+								elseif($nid != null){
+									echo "<td>";
+									echo "<b> Nutricionista Atribuido - $nutri </b>";
+									echo "</td>";
+								}
+							}
+							
+							else if($_SESSION["authuser"] == 1 && $nid==null) {
+								echo "<tr>";
+								echo "<td>";
+								echo "<a href='http://localhost/SIM/index.php?operacao=showNutri&pageNumber=1&pageSize=10&profile=$username'> Escolher Nutricionista </a>";
+								echo "</td>";
+								echo "<td>";
+							}
+							
+							else if($_SESSION["authuser"] == 1 && $nid!=null) {
+								echo "<tr>";
+								echo "<td>";
+								echo "<b> Nutricionista Atribuido - $nutri </b>";
 								echo "</td>";
 								echo "<td>";
 							}

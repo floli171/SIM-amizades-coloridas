@@ -12,6 +12,7 @@
 		$profile = $_POST["username"];
 	}
 	
+	$today=date("Y-m-d");
 	$foods = array('portionMilk', 'portionBread', 'portionEgg', 'portionFish', 'portionBeef', 'portionChicken', 'portionVegetable', 'portionPotato', 'portionRice', 'portionFruit', 'portionOther');
 	
 	for($i=0; $i<10; $i++){
@@ -32,7 +33,7 @@
 	$T = (int)$_POST["exerciseduration"]; 
 	$V = (int)$_POST["averagevelocity"];
 	$A = $_POST["exercisetype"];
-	$query_insert = 'INSERT INTO comida_dia(U_ID, Leite, Pao, Ovos, Peixe, Vaca, Frango, Vegetais, Batata, Arroz, Fruta, Actividade, T, V) VALUES ("'.$i.'", "'.$foods[0].'", "'.$foods[1].'", "'.$foods[2].'", "'.$foods[3].'", "'.$foods[4].'", "'.$foods[5].'", "'.$foods[6].'", "'.$foods[7].'", "'.$foods[8].'", "'.$foods[9].'", "'.$A.'", "'.$T.'", "'.$V.'")';
+	$query_insert = 'INSERT INTO comida_dia(U_ID, Leite, Pao, Ovos, Peixe, Vaca, Frango, Vegetais, Batata, Arroz, Fruta, Actividade, T, V, DataDeRegisto) VALUES ("'.$i.'", "'.$foods[0].'", "'.$foods[1].'", "'.$foods[2].'", "'.$foods[3].'", "'.$foods[4].'", "'.$foods[5].'", "'.$foods[6].'", "'.$foods[7].'", "'.$foods[8].'", "'.$foods[9].'", "'.$A.'", "'.$T.'", "'.$V.'", "'.$today.'")';
 	$insert = mysqli_query($connect, $query_insert) or die(mysqli_error($connect));
 	echo "Registo com sucesso da alimentação de $u";
 	
