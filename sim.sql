@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 17-Dez-2017 às 03:44
+-- Generation Time: 17-Dez-2017 às 18:38
 -- Versão do servidor: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -87,25 +87,27 @@ CREATE TABLE IF NOT EXISTS `comida_dia` (
   `Actividade` varchar(100) CHARACTER SET utf8 NOT NULL,
   `T` int(11) NOT NULL,
   `V` int(11) NOT NULL,
-  `Data de Registo` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `DataDeRegisto` date NOT NULL,
   PRIMARY KEY (`C_ID`),
   KEY `U_ID` (`U_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1 COMMENT='Alimentação Diária';
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1 COMMENT='Alimentação Diária';
 
 --
 -- Extraindo dados da tabela `comida_dia`
 --
 
-INSERT INTO `comida_dia` (`C_ID`, `U_ID`, `Leite`, `Pao`, `Ovos`, `Peixe`, `Vaca`, `Frango`, `Vegetais`, `Batata`, `Arroz`, `Fruta`, `Actividade`, `T`, `V`, `Data de Registo`) VALUES
-(15, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, '2017-12-16 18:42:09'),
-(16, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, '2017-12-16 18:42:19'),
-(17, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, '2017-12-16 18:42:30'),
-(18, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, '2017-12-16 18:42:45'),
-(19, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, '2017-12-16 18:52:25'),
-(20, 3, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, '2017-12-16 18:57:13'),
-(21, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'running', 0, 0, '2017-12-17 00:04:28'),
-(22, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'running', 0, 0, '2017-12-17 03:43:40'),
-(23, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'running', 0, 0, '2017-12-17 03:43:57');
+INSERT INTO `comida_dia` (`C_ID`, `U_ID`, `Leite`, `Pao`, `Ovos`, `Peixe`, `Vaca`, `Frango`, `Vegetais`, `Batata`, `Arroz`, `Fruta`, `Actividade`, `T`, `V`, `DataDeRegisto`) VALUES
+(16, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, '2017-12-16'),
+(21, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'running', 0, 0, '2017-12-17'),
+(22, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'running', 0, 0, '2017-12-17'),
+(23, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'running', 0, 0, '2017-12-17'),
+(24, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'running', 0, 0, '2017-12-17'),
+(25, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'running', 0, 0, '2017-12-17'),
+(26, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'running', 0, 0, '2017-12-17'),
+(27, 8, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'running', 0, 0, '2017-12-15'),
+(28, 8, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'running', 0, 0, '2017-12-16'),
+(29, 8, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'running', 0, 0, '2017-12-17'),
+(30, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'running', 0, 0, '2017-12-17');
 
 -- --------------------------------------------------------
 
@@ -186,15 +188,20 @@ CREATE TABLE IF NOT EXISTS `utente` (
   `Actividade` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`U_ID`),
   KEY `N_ID` (`N_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Utentes';
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='Utentes';
 
 --
 -- Extraindo dados da tabela `utente`
 --
 
 INSERT INTO `utente` (`U_ID`, `N_ID`, `Nome`, `Username`, `Password`, `Gen`, `DataDeNascimento`, `Morada`, `Tel`, `CS`, `Peso`, `Altura`, `Fotografia`, `Email`, `Tipo`, `Data de Registo`, `Actividade`) VALUES
-(2, 1, 'JosÃ© Francisco Fernandes', 'ze90', 'ze90', 'male', '1950-08-03', 'Rua Filetes de Pescada', 914204204, 420420420, 42, 42, 0x24666f746f677261666961, 'jose@campus.fct.unl.pt', 'utente', '2017-12-16 17:36:05', 1),
-(3, NULL, 'Francisca Almeida', 'Francisca', 'almeida', 'female', '1962-06-04', 'Rua da Alfazema', 888888888, 777777777, 77, 77, 0x24666f746f677261666961, 'fr.almeida', 'utente', '2017-12-16 18:52:03', 1);
+(2, 1, 'JosÃ© Francisco Fernandes', 'ze90', 'ze90', 'male', '1980-08-03', 'Rua Filetes de Pescada', 914204204, 420420420, 70, 170, 0x24666f746f677261666961, 'jose@campus.fct.unl.pt', 'utente', '2017-12-16 17:36:05', 1),
+(3, 1, 'Francisca Almeida', 'Francisca', 'almeida', 'female', '1962-06-04', 'Rua da Alfazema', 888888888, 777777777, 77, 77, 0x24666f746f677261666961, 'fr.almeida', 'utente', '2017-12-16 18:52:03', 1),
+(4, NULL, 'Ana Eloy', 'Eloy', 'eloy', 'Feminino', '1986-04-03', 'Avenida da de brasilia', 911890272, 234897654, 50, 157, 0x24666f746f677261666961, 'eloy@maat.pt', 'utente', '2017-12-17 14:58:55', 1),
+(5, NULL, 'Carla Maria QuintÃ£o', 'Carla', 'Quintao', 'Masculino', '1979-04-04', 'fct.unl.pt', 918762738, 998989898, 60, 160, 0x24666f746f677261666961, 'c.quintao@fct.unl.pt', 'utente', '2017-12-17 15:03:14', 1),
+(6, 1, 'Gustavo Ferreira', 'Guga', 'ferro', 'Feminino', '1979-03-05', 'Caralho', 666666666, 420420420, 80, 180, 0x24666f746f677261666961, 'gelados@ola.pt', 'utente', '2017-12-17 17:05:42', 1),
+(7, NULL, 'Guilherme Oliveira', 'Guilherme', 'Oliveira', 'Masculino', '1992-06-03', 'Praceta do Alecrim', 913901040, 420420420, 90, 173, 0x24666f746f677261666961, 'gkidroliveira@hotmail.com', 'utente', '2017-12-17 17:59:06', 1),
+(8, 1, 'Madalena Lourenco', 'Madalena', 'balecas', 'Feminino', '1996-12-03', 'Faro', 912738493, 383829283, 45, 165, 0x24666f746f677261666961, 'mada@fac.pt', 'utente', '2017-12-17 18:03:26', 1);
 
 --
 -- Constraints for dumped tables
