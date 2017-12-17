@@ -35,6 +35,50 @@
 			checkboxes(foods[i], portions[i]);
 		}
 	}
+	
+	function addFood(){
+		
+		var f = document.createElement("input");
+		var t = document.getElementById('typeOther').value;
+		f.setAttribute('type', "checkbox");
+		f.setAttribute('name', t);
+		
+		/*var p = document.createElement('select');
+		var opt1 = document.createElement('option');
+		opt0.text=" - Porção - ";
+		opt0.value="0";
+		p.appendChild(opt0);
+		/*var opt1 = document.createElement('option');
+		opt1.text="1";
+		opt1.setAttribute('value', "1");
+		p.appendChild(opt1);
+		var opt2 = document.createElement('option');
+		opt2.setAttribute('text', "2");
+		opt2.setAttribute('value', "2");
+		p.appendChild(opt2);
+		var opt3 = document.createElement('option');
+		opt3.setAttribute('text', "3");
+		opt3.setAttribute('value', "3");
+		p.appendChild(opt3);*/
+		
+		var table = document.getElementById("food");
+		var row1 = table.insertRow(21);
+		var cell1_0 = row1.insertCell(0);
+		var cell1_1 = row1.insertCell(1);
+		var row2 = table.insertRow(22);
+		var cell2_0 = row2.insertCell(0);
+		var t = document.getElementById('typeOther').value;
+		
+		cell1_0.setAttribute('align', "right");
+		cell2_0.setAttribute('align', "right");
+		cell1_1.innerHTML = t;
+		cell1_0.appendChild(f);
+		cell2_0.appendChild(p);
+		
+		
+		
+		
+	}
 </script>
 
 <?php
@@ -47,7 +91,7 @@
 	}
 ?>
 
-<table border="0">
+<table border="0" id="food">
 	<tr>
 		<th colspan="2">
 			Alimentos Consumidos
@@ -231,6 +275,27 @@
 					<option value="3">3</option>
 		</td>
 	</tr>
+	<tr>
+		<td align="right">
+			<input type="checkbox" name="other" id="other" onclick="myFunction('other', 'addOther'); myFunction('other', 'typeOther')">	
+		</td>
+		<td>
+			Outro: <input type="text" name="typeOther" id="typeOther" disabled>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="button" name="addOther" value="Adicionar" id="addOther" onclick="addFood()" disabled>
+		</td>
+		
+		<!--<td colspan="2">
+				<select name="portionOther" id="portionOther" disabled>	
+					<option value="0"> - Porção - </option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+		</td>-->
+	</tr>
 	<br>
 </table>
 
@@ -242,7 +307,18 @@
 	</tr>
 	<tr>
 		<td>
-			Dura&ccedil;&atilde;o da corrida:
+			Tipo de exercício:
+		</td>
+		<td>
+			<select name="exercisetype">	
+					<option value="running">Corrida</option>
+					<option value="swimming">Nata&ccedil;&atilde;o</option>
+					<option value="cycling">Ciclismo</option>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Dura&ccedil;&atilde;o do exercício:
 		</td>
 		<td>
 			<input type="number" name="exerciseduration" value="0">
@@ -258,7 +334,7 @@
 	</tr>
 </table>
 	<input type = "hidden" name = "username" value = '<?php echo "$profile" ?>'>
-<p><input type="Submit" name="Submit" id="submit" value="Submit" ></p></form></p>
+<p><input type="Submit" id="submit" value="Submit" ></p></form></p>
 
 
 <!-- sugestões

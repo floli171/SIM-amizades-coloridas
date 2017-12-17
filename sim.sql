@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 14-Dez-2017 às 23:25
+-- Generation Time: 17-Dez-2017 às 03:44
 -- Versão do servidor: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -84,30 +84,28 @@ CREATE TABLE IF NOT EXISTS `comida_dia` (
   `Batata` int(11) NOT NULL,
   `Arroz` int(11) NOT NULL,
   `Fruta` int(11) NOT NULL,
+  `Actividade` varchar(100) CHARACTER SET utf8 NOT NULL,
   `T` int(11) NOT NULL,
   `V` int(11) NOT NULL,
+  `Data de Registo` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`C_ID`),
   KEY `U_ID` (`U_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1 COMMENT='Alimentação Diária';
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1 COMMENT='Alimentação Diária';
 
 --
 -- Extraindo dados da tabela `comida_dia`
 --
 
-INSERT INTO `comida_dia` (`C_ID`, `U_ID`, `Leite`, `Pao`, `Ovos`, `Peixe`, `Vaca`, `Frango`, `Vegetais`, `Batata`, `Arroz`, `Fruta`, `T`, `V`) VALUES
-(1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(4, 1, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(5, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(6, 1, 2, 1, 3, 1, 1, 1, 0, 0, 0, 0, 0, 0),
-(7, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(8, 1, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(9, 1, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 0, 0),
-(10, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(11, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(12, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(13, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `comida_dia` (`C_ID`, `U_ID`, `Leite`, `Pao`, `Ovos`, `Peixe`, `Vaca`, `Frango`, `Vegetais`, `Batata`, `Arroz`, `Fruta`, `Actividade`, `T`, `V`, `Data de Registo`) VALUES
+(15, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, '2017-12-16 18:42:09'),
+(16, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, '2017-12-16 18:42:19'),
+(17, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, '2017-12-16 18:42:30'),
+(18, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, '2017-12-16 18:42:45'),
+(19, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, '2017-12-16 18:52:25'),
+(20, 3, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, '2017-12-16 18:57:13'),
+(21, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'running', 0, 0, '2017-12-17 00:04:28'),
+(22, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'running', 0, 0, '2017-12-17 03:43:40'),
+(23, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'running', 0, 0, '2017-12-17 03:43:57');
 
 -- --------------------------------------------------------
 
@@ -126,14 +124,14 @@ CREATE TABLE IF NOT EXISTS `investigador` (
   `Data de Registo` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `Actividade` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`I_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Investigadores';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Investigadores';
 
 --
 -- Extraindo dados da tabela `investigador`
 --
 
 INSERT INTO `investigador` (`I_ID`, `Nome`, `Username`, `Password`, `Email`, `Tipo`, `Data de Registo`, `Actividade`) VALUES
-(1, 'Roberto Fonseca Dias', 'Roberto', 'InvRoberto', 'roberto79@gmail.com', 'investigador', '2017-12-08 17:17:34', 0);
+(1, 'Roberto Fonseca Dias', 'Roberto', 'InvRoberto', 'roberto79@gmail.com', 'investigador', '2017-12-08 17:17:34', 1);
 
 -- --------------------------------------------------------
 
@@ -152,7 +150,7 @@ CREATE TABLE IF NOT EXISTS `nutricionista` (
   `Tipo` varchar(20) NOT NULL DEFAULT 'nutricionista',
   `Actividade` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`N_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='Nutricionistas';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Nutricionistas';
 
 --
 -- Extraindo dados da tabela `nutricionista`
@@ -170,6 +168,7 @@ INSERT INTO `nutricionista` (`N_ID`, `Nome`, `Username`, `Password`, `Email`, `D
 DROP TABLE IF EXISTS `utente`;
 CREATE TABLE IF NOT EXISTS `utente` (
   `U_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `N_ID` int(11) DEFAULT NULL,
   `Nome` varchar(100) NOT NULL,
   `Username` varchar(32) NOT NULL,
   `Password` varchar(20) NOT NULL,
@@ -185,15 +184,17 @@ CREATE TABLE IF NOT EXISTS `utente` (
   `Tipo` varchar(20) NOT NULL DEFAULT 'utente',
   `Data de Registo` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `Actividade` tinyint(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`U_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COMMENT='Utentes';
+  PRIMARY KEY (`U_ID`),
+  KEY `N_ID` (`N_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Utentes';
 
 --
 -- Extraindo dados da tabela `utente`
 --
 
-INSERT INTO `utente` (`U_ID`, `Nome`, `Username`, `Password`, `Gen`, `DataDeNascimento`, `Morada`, `Tel`, `CS`, `Peso`, `Altura`, `Fotografia`, `Email`, `Tipo`, `Data de Registo`, `Actividade`) VALUES
-(1, 'JosÃ© Francisco Fernandes', 'ze90', 'ze90', 'male', '1990-10-09', 'Rua Sesamo', 963456714, 142316765, 90, 173, 0x52756120646f7320426f6d626569726f73, 'jose@campus.fct.unl.pt', 'utente', '2017-12-09 19:54:02', 1);
+INSERT INTO `utente` (`U_ID`, `N_ID`, `Nome`, `Username`, `Password`, `Gen`, `DataDeNascimento`, `Morada`, `Tel`, `CS`, `Peso`, `Altura`, `Fotografia`, `Email`, `Tipo`, `Data de Registo`, `Actividade`) VALUES
+(2, 1, 'JosÃ© Francisco Fernandes', 'ze90', 'ze90', 'male', '1950-08-03', 'Rua Filetes de Pescada', 914204204, 420420420, 42, 42, 0x24666f746f677261666961, 'jose@campus.fct.unl.pt', 'utente', '2017-12-16 17:36:05', 1),
+(3, NULL, 'Francisca Almeida', 'Francisca', 'almeida', 'female', '1962-06-04', 'Rua da Alfazema', 888888888, 777777777, 77, 77, 0x24666f746f677261666961, 'fr.almeida', 'utente', '2017-12-16 18:52:03', 1);
 
 --
 -- Constraints for dumped tables
@@ -210,6 +211,12 @@ ALTER TABLE `alimentos`
 --
 ALTER TABLE `comida_dia`
   ADD CONSTRAINT `U_ID` FOREIGN KEY (`U_ID`) REFERENCES `utente` (`U_ID`);
+
+--
+-- Limitadores para a tabela `utente`
+--
+ALTER TABLE `utente`
+  ADD CONSTRAINT `N_ID` FOREIGN KEY (`N_ID`) REFERENCES `nutricionista` (`N_ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

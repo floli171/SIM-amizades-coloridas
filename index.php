@@ -99,6 +99,7 @@ if(isset($_GET["operacao"])) {				//Código que procede ao logout quando o utili
 <html>
 <head>
 	<title>LifestyleFCT</title>	<!-- título da página -->
+	<link href="calendar.css" type="text/css" rel="stylesheet" />
 </head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -212,6 +213,14 @@ body {font-size:16px;}
 
 						case 'updateActivity' :
 							include'updateActivity.php';
+							break;
+						
+						case 'foodInfo' :
+							include 'foodInfo.php';
+							break;
+						
+						case 'showCalendar':
+							include 'showCalendar.php';
 							break;
 
 						default:

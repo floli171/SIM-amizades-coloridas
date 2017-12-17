@@ -20,6 +20,7 @@
 	$query_info = "SELECT * FROM utente WHERE Username = '".$profile."'";
 	$result_info = mysqli_query($connect, $query_info) or die (mysqli_error($connect));
 	$row_info = mysqli_fetch_array($result_info);
+
 	$id = $row_info['U_ID'];
 	$name = $row_info['Nome'];
 	$username = $row_info['Username'];
@@ -33,6 +34,13 @@
 	$height = $row_info['Altura'];
 	$pic = $row_info['Fotografia'];
 	$email = $row_info['Email'];
+	$actv = $row_info['Actividade'];
+
+	$query_age = "SELECT TIMESTAMPDIFF(year, (SELECT DataDeNascimento FROM utente WHERE Username = '".$profile."'), CURDATE())";
+	$result_age = mysqli_query($connect, $query_age) or die (mysqli_error($connect));
+	$rows = mysqli_fetch_row($result_age);
+	$age = $rows[0];
+
 ?>
 
 <table border="1">
@@ -50,6 +58,10 @@
 						echo "<td>";
 							echo '<input type = "text" name="username" value="'.$id.'" disabled>';
 						echo "</td>";
+						echo "<td>";
+							if($actv == 0){echo "Inactivo";}
+								elseif($actv == 1){echo "Activo";}
+						echo "</td>";
 					}
 					
 					
@@ -60,6 +72,10 @@
 						echo "</td>";
 						echo "<td>";
 							echo '<input type = "text" name="username" value="'.$username.'" disabled>';
+						echo "</td>";
+						echo "<td>";
+							if($actv == 0){echo "Inactivo";}
+								elseif($actv == 1){echo "Activo";}
 						echo "</td>";
 					
 						if($_SESSION["authuser"] == 1){
@@ -86,15 +102,29 @@
 						<input type="radio" name="gender" value="female" disabled >Feminino<br>
 					</td>
 				</tr>
-				<tr>
-					<td>
-						<p>Data de Nascimento: </p>
-					</td>
-					<td>
-						<input type = "text" name="date of birth" value="<?php echo $dateofbirth?>" disabled>
-					</td>
-				</tr>
-				<?php		
+			<?php
+				
+				if($_SESSION["authuser"] == 2 || $_SESSION["authuser"] == 3){
+					 	echo "<tr>";
+					 	echo "<td>";
+						echo "<p>Idade: </p>";
+						echo "</td>";
+						echo "<td>";
+							echo '<input type = "text" name="date of birth" value= "'.$age.'" disabled>';
+						echo "</td>";
+						echo "</tr>";
+				}
+				else{
+					echo "<tr>";
+						echo "<td>";
+							echo "<p>Data de Nascimento: </p>";
+						echo "</td>";
+						echo "<td>";
+							echo '<input type = "text" name="date of birth" value="'.$dateofbirth.'" disabled>';
+						echo "</td>";
+					echo "</tr>";
+				}
+						
 					
 					if($_SESSION["authuser"] != 3){	
 						
@@ -231,6 +261,16 @@
 								echo "<tr>";
 								echo "<td>";
 								echo "<a href='http://localhost/SIM/index.php?operacao=dailyInfo&profile=$username'> Registar Atividade Diária de $username </a>";
+								echo "</td>";
+								echo "<td>";
+							}
+							
+							else if(($_SESSION["authuser"] == 2) || ($_SESSION["authuser"] == 1)) {
+								echo "<tr>";
+								echo "<td>";
+								//$year = date("Y");
+								//$month = date("m");
+								echo "<a href='http://localhost/SIM/index.php?operacao=showCalendar&profile=$id'> Consultar Alimenta&ccedil;&atilde;o de $username </a>";
 								echo "</td>";
 								echo "<td>";
 							}
