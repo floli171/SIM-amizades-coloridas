@@ -5,7 +5,7 @@ $profile = $_GET["profile"];
 
 $connect = mysqli_connect('localhost', 'root', '', 'sim') or die(mysqli_error($connect)); //conecta a base de dados sim
 
-$query_registo_dia = 'SELECT * FROM comida_dia WHERE U_ID = '.$profile.' AND C_ID = 16';
+$query_registo_dia = 'SELECT * FROM comida_dia WHERE U_ID = '.$profile.' AND C_ID = 16'; // é suposto este 16 estar aqui????
 
 $get_registo_dia = mysqli_query($connect, $query_registo_dia) or die(mysqli_error($connect));
 $alimentos = mysqli_fetch_array($get_registo_dia);

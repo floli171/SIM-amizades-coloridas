@@ -13,7 +13,7 @@
 						<input type="radio" name="usertype" value="assistente">Assistente<br>
 						<input type="radio" name="usertype" value="investigador">Investigador<br>
 						<input type="radio" name="usertype" value="nutricionista">Nutricionista<br>
-						<input type="radio" name="usertype" value="utentes">Utente<br>
+						<input type="radio" name="usertype" value="utente">Utente<br>
 					</td>
 				</tr>
 				

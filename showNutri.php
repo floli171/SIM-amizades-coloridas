@@ -11,8 +11,6 @@
 
 </script>
 
-
-
 <?php
 $pageNumber = $_GET["pageNumber"]; /*número de paginação*/
 $pageSize = $_GET["pageSize"]; /*número de utilizadores/linhas*/
@@ -64,10 +62,10 @@ $connect = mysqli_connect('localhost', 'root', '', 'sim') or die(mysqli_error($c
 							
 							echo "<td>";
 							if($actv == 1){
-								echo "<input type='checkbox' name='nutri' value='$nid' id='n$i' onclick='disableAll()'>";
+								echo "<input type='radio' name='nutri' value='$nid' id='n$i'>";
 							}
 							elseif($actv == 1){
-								echo "<input type='checkbox' name='nutri' value='$nid' id='n$i' disabled onclick='disableAll()'>";
+								echo "<input type='radio' name='nutri' value='$nid' id='n$i'>";
 							}
 							echo "</td>";
 							

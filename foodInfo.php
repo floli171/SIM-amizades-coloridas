@@ -63,6 +63,18 @@
 							}
 						echo "</td>";
 					echo "</tr>";
-				?>
 
+					echo "<tr>";
+
+					if(isset($_SESSION["authuser"])) {
+
+						if($_SESSION["authuser"]==2) {
+							echo "<form action='POST' action='index.php?operacao=foodinfo.php'>";
+							echo "<input type='text' name='recomendation'value=$recomendation>";
+							echo "</form>";
+							$query_recomendation = 'UPDATE `comida_dia` SET `Recomendacao`= "Deve comer mais proteína branca (frango)" WHERE C_ID = ';
+						}
+					}
+					echo "</tr>";
+			?>
 </table>

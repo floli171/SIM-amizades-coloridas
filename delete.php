@@ -28,14 +28,13 @@
 			if(strcmp($type, $_POST["usertype"]) != 0)
 			{
 				echo "Não existe um utilizador desse tipo com esse nome";
-				echo "$c";
 				include 'showDelete.php';
 			}
 			else
 			{
 				$query_disable = 'UPDATE '.$type.' SET Actividade = 0 WHERE Username = "'.$username.'"';
 				$disable = mysqli_query($connect, $query_disable) or die(mysqli_error($connect));
-				echo "Eliminado $type $username";
+				echo "Desactivado $type $username";
 			}
 	}
 	

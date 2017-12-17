@@ -84,7 +84,7 @@
 								if(isset($_SESSION["authuser"])) {
 
 									if($_SESSION["authuser"]==4) {
-										echo "<a href='http://localhost/SIM/index.php?operacao=showDelete'>Remover Utilizador</a>";
+										echo "<a href='http://localhost/SIM/index.php?operacao=showDelete'>Desactivar Utilizador</a>";
 									}
 								}
 
