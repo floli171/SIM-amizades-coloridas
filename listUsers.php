@@ -3,13 +3,26 @@ $pageNumber = $_GET["pageNumber"]; /*número de paginação*/
 $pageSize = $_GET["pageSize"]; /*número de utilizadores/linhas*/
 
 $connect = mysqli_connect('localhost', 'root', '', 'sim') or die(mysqli_error($connect)); //liga a base de dados sim
+$query_countU = 'SELECT COUNT(Username) AS utentes FROM Utente';
+$query_countI = 'SELECT COUNT(Username) AS investigadores FROM investigador';
+$query_countN = 'SELECT COUNT(Username) AS nutricionistas FROM nutricionista';
+$get_countU = mysqli_query($connect, $query_countU);
+$get_countI = mysqli_query($connect, $query_countI);
+$get_countN = mysqli_query($connect, $query_countN);
+$countU = mysqli_fetch_array($get_countU);
+$countI = mysqli_fetch_array($get_countI);
+$countN = mysqli_fetch_array($get_countN);
+$nu=$countU['utentes'];
+$ni=$countI['investigadores'];
+$nn=$countN['nutricionistas'];
 
+$last_id=mysqli_insert_id($connect);
 //$number = mysqli_num_rows($get_user);
 ?>
 
-<table width="500px" height="350px" border="1" align="center" >
-			<tr bgcolor="33FF33"> <!-- primeira linha com o nome das entradas -->
-				<th> id </th>
+<table bgcolor="FFFFFF" width="500px" height="350px" border="1" align="center" >
+			<tr bgcolor="9fff80"> <!-- primeira linha com o nome das entradas -->
+				<th> ID </th>
 				<?php
 					if($_SESSION["authuser"] != 3){
 						echo "<th> Nome de Utilizador </th>";
@@ -20,7 +33,7 @@ $connect = mysqli_connect('localhost', 'root', '', 'sim') or die(mysqli_error($c
 				<?php
 					if($_SESSION["authuser"] == 4){
 						echo "<th> Tipo de Utilizador </th>";
-						echo "<th> Actividade </th>";
+						echo "<th> Actividade $last_id</th>";
 					}
 				?>
 			</tr>
@@ -100,7 +113,7 @@ $connect = mysqli_connect('localhost', 'root', '', 'sim') or die(mysqli_error($c
 				
 				if($_SESSION["authuser"] == 4){
 					
-					for($n=($pageNumber - 1) * $pageSize; $n < $pageNumber * $pageSize; $n++) { /*n é o index*/
+					for($n=($pageNumber - 1) * $pageSize; $n < $nu; $n++) { /*n é o index*/
 					
 					$i=$n+1; //para começar a ir buscar useres a tabela a partir do ID 1
 					$query_uid = 'SELECT * FROM utente WHERE U_ID = "'.$i.'"'; //codigo SQL para seleccionar todas as informações com o ID i
@@ -145,7 +158,7 @@ $connect = mysqli_connect('localhost', 'root', '', 'sim') or die(mysqli_error($c
 							
 						echo "</tr>";
 					}
-					for($n=($pageNumber - 1) * $pageSize; $n < $pageNumber * $pageSize; $n++) { /*n é o index*/
+					for($n=($pageNumber - 1) * $pageSize; $n < $nn; $n++) { /*n é o index*/
 					
 					$i=$n+1; //para começar a ir buscar useres a tabela a partir do ID 1
 					$query_nid = 'SELECT * FROM nutricionista WHERE N_ID = "'.$i.'"'; //codigo SQL para seleccionar todas as informações com o ID i
@@ -187,7 +200,7 @@ $connect = mysqli_connect('localhost', 'root', '', 'sim') or die(mysqli_error($c
 							
 						echo "</tr>";
 					}
-					for($n=($pageNumber - 1) * $pageSize; $n < $pageNumber * $pageSize; $n++) { /*n é o index*/
+					for($n=($pageNumber - 1) * $pageSize; $n < $ni; $n++) { /*n é o index*/
 					
 					$i=$n+1; //para começar a ir buscar useres a tabela a partir do ID 1
 					$query_iid = 'SELECT * FROM investigador WHERE I_ID = "'.$i.'"'; //codigo SQL para seleccionar todas as informações com o ID i

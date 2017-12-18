@@ -17,7 +17,8 @@ body {font-size:16px;}
 
 <body>
   <div class="w3-container" style="margin-top:80px" id="showcase">
-    <h1 class="w3-jumbo"><b>A lifeStyleFCT dispÃµe de um grupo de nutricionistas formados na Ã¡rea prontos para o ajudar</b></h1>
+    <h1 class="w3-jumbo"><b>A LifeStyleFCT disp&otilde;e de um grupo de nutricionistas formados na &aacute;rea prontos para o ajudar!</b></h1>
+	<h2> Website construido por: <br> Andr&eacute; Oliveira - 42990 <br> B&aacute;rbara Oliveira 43783 <br> Filipa Carvalho 45063 <h2>
   </div>
 </body>
 

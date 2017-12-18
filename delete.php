@@ -16,11 +16,10 @@
 	$user = mysqli_fetch_array($get_user);
 	$username = $_POST["user"];
 	$type = $user['Tipo'];
-	$c = strcmp($type, $_POST["usertype"]);
+	$c = strcmp($type, $_POST["usertype"]);	
 	
 	if($number == 0){
-		//Insere user
-			// falta codificar a pass com MD5 é algo deste género: $pass = MD5($_POST["pass"]);
+	
 			echo "Utilizador não existente";
 			include 'showDelete.php';
 	}
@@ -32,9 +31,32 @@
 			}
 			else
 			{
-				$query_disable = 'UPDATE '.$type.' SET Actividade = 0 WHERE Username = "'.$username.'"';
-				$disable = mysqli_query($connect, $query_disable) or die(mysqli_error($connect));
-				echo "Desactivado $type $username";
+				$query_activity = 'SELECT Actividade FROM '.$tipo.' WHERE Username = '.$username.'';
+				$get_activity = mysqli_query($connect, $query_activity);
+				$info = mysqli_fetch_array($get_activity);
+				$activity = $info['Actividade'];
+				
+				if($activity == 1){
+					$query_disable = 'UPDATE '.$type.' SET Actividade = 0 WHERE Username = "'.$username.'"';
+					$disable = mysqli_query($connect, $query_disable) or die(mysqli_error($connect));
+					echo "Desactivado $type $username";
+				}
+				
+				else{
+					echo "$type $username já foi desactivado";
+				}
+
+				
+				if(strcmp($type,'nutricionista')==0){
+				
+					echo "Está a desactivar um utilizador do tipo nutricionista deseja desatribuir também os seus utentes?";
+					echo "<form method='POST' action='index.php?operacao=showDelete&user=$username&Tipo=$type'>";
+					echo "<input type='radio' name='desatribuir' value='1'>Sim";
+					echo "<input type='radio' name='desatribuir' value='0'>Não";
+					echo "<input type='submit' 'value='submit'>";
+					echo "</form>";
+				
+				}
 			}
 	}
 	

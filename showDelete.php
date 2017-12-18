@@ -41,4 +41,23 @@
 	</tr>
 </table>
 
+<?php
+
+	if(isset($_POST['desatribuir'])){
+		
+		$connect = mysqli_connect('localhost', 'root', '', 'sim') or die(mysqli_error($connect)); //conecta a base de dados sim
+		
+		if($_POST["desatribuir"] == 1){		
+			$query_nutri = "SELECT * FROM nutricionista WHERE Username = '".$_GET["user"]."'";
+			$result_nutri = mysqli_query($connect, $query_nutri) or die (mysqli_error($connect));
+			$nutri_info = mysqli_fetch_array($result_nutri);
+			$nid=$nutri_info['N_ID'];
+		
+			$query_update = 'UPDATE utente SET N_ID = null WHERE N_ID = '.$nid.'';
+			$update = mysqli_query($connect, $query_update);
+			echo "Nutricionista desatribuido dos utentes";
+		}	
+	}
+?>
+
 <br><p><input type="Submit" name="Submit" value="Submit"></form></p>

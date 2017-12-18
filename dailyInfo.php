@@ -1,5 +1,3 @@
-<p>Aqui deverá fazer o registo diário da sua alimenta&ccedil;&atilde;o</p> <hr>
-
 <script>
 	function myFunction(food, portion) {
 		if (document.getElementById(food).checked == true) {
@@ -83,11 +81,43 @@
 
 <?php
 
+	$connect = mysqli_connect('localhost', 'root', '', 'sim') or die(mysqli_error($connect)); //conecta a base de dados sim
+	
 	if($_SESSION['authuser']==4){
 		$profile = $_GET["profile"];
+		$query_info = "SELECT * FROM utente WHERE Username = '".$profile."'";
+		$result_info = mysqli_query($connect, $query_info) or die (mysqli_error($connect));
+		$row_info = mysqli_fetch_array($result_info);
+		$profile = $row_info['U_ID'];
 	}
 	else{
-		$profile = 0;
+		$profile = $_SESSION["username"];
+		$query_info = "SELECT * FROM utente WHERE Username = '".$profile."'";
+		$result_info = mysqli_query($connect, $query_info) or die (mysqli_error($connect));
+		$row_info = mysqli_fetch_array($result_info);
+		$profile = $row_info['U_ID'];
+	}
+	
+	
+	
+		//Verifica se o user ja existe
+	$today=date("Y-m-d");
+	$month=date("m");
+	$year=date("Y");
+	$day=date("d");
+	$day2=$day-1;
+	$query_info = 'SELECT DataDeRegisto FROM comida_dia WHERE DAY(DataDeRegisto)='.$day.' AND MONTH(DataDeRegisto)='.$month.' AND YEAR(DataDeRegisto)='.$year.' AND U_ID = '.$profile.'';
+	$result_info = mysqli_query($connect, $query_info) or die (mysqli_error($connect));
+	$number = mysqli_num_rows($result_info);
+	$row_info = mysqli_fetch_array($result_info);
+	$date = $row_info['DataDeRegisto'];
+	
+	if($number==0){
+		echo "<p>Aqui deverá fazer o registo diário da sua alimenta&ccedil;&atilde;o</p> <hr>";
+	}
+	
+	else{
+		echo "Já submeteu a sua alimentação diária. Só poderá submeter a sua alimentação uma vez por dia. Obrigado e até amanhã!";
 	}
 ?>
 

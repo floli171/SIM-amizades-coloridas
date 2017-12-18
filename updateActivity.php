@@ -19,24 +19,28 @@
 
 switch ($tipo)
 	{
-	case 'assistante' :
+	case 'assistente' :
 		$query_updateActivity = 'UPDATE assistente SET Actividade = "1" WHERE Username = "'.$_SESSION["username"].'"';
 		$updateActivity = mysqli_query($connect, $query_updateActivity) or die(mysqli_error($connect));
+		$_SESSION["authuser"]=4;
 		break;
 		
 	case 'investigador' :
 		$query_updateActivity = 'UPDATE investigador SET Actividade = "1" WHERE Username = "'.$_SESSION["username"].'"';
 		$updateActivity = mysqli_query($connect, $query_updateActivity) or die(mysqli_error($connect));
+		$_SESSION["authuser"]=3;
 		break;
 
 	case 'nutricionista' :
 		$query_updateActivity = 'UPDATE nutricionista SET Actividade = "1" WHERE Username = "'.$_SESSION["username"].'"';
 		$updateActivity = mysqli_query($connect, $query_updateActivity) or die(mysqli_error($connect));
+		$_SESSION["authuser"]=2;
 		break;
 
 	case 'utente' :
-		$query_updateActivity = 'UPDATE assistente SET Actividade = "1" WHERE Username = "'.$_SESSION["username"].'"';
+		$query_updateActivity = 'UPDATE utente SET Actividade = "1" WHERE Username = "'.$_SESSION["username"].'"';
 		$updateActivity = mysqli_query($connect, $query_updateActivity) or die(mysqli_error($connect));
+		$_SESSION["authuser"]=1;
 		break;
 	}
 

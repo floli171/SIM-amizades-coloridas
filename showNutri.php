@@ -1,16 +1,3 @@
-<script>
-
-	function disableAll(){
-		for (var i = 0; i < 30; i++){
-			if(document.getElementById(i).checked==false){
-				document.getElementById(i).disabled==true;
-			}
-			else{document.getElementById(i).disabled==false;}
-		}
-				
-
-</script>
-
 <?php
 $pageNumber = $_GET["pageNumber"]; /*número de paginação*/
 $pageSize = $_GET["pageSize"]; /*número de utilizadores/linhas*/
@@ -64,8 +51,8 @@ $connect = mysqli_connect('localhost', 'root', '', 'sim') or die(mysqli_error($c
 							if($actv == 1){
 								echo "<input type='radio' name='nutri' value='$nid' id='n$i'>";
 							}
-							elseif($actv == 1){
-								echo "<input type='radio' name='nutri' value='$nid' id='n$i'>";
+							elseif($actv == 0){
+								echo "<input type='radio' name='nutri' value='$nid' id='n$i' disabled>";
 							}
 							echo "</td>";
 							

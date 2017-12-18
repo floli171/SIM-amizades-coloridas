@@ -111,21 +111,22 @@ body {font-size:16px; background-image: 'home.png'no-repeat center center fixed;
 
 
 <!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+<nav class="w3-sidebar w3-light-green w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
   <div class="w3-container">
     <h3 class="w3-padding-64"><b>LifeStyleFCT</b></h3>
   </div>
   <div class="w3-bar-block">
     <a href="http://localhost/SIM/index.php?operacao=home" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
-    <a href="http://localhost/SIM/index.php?operacao=showLogin" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Login</a> 
-    <a href="http://localhost/SIM/index.php?operacao=showRegistry" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Registar</a> 
+    <!--<a href="http://localhost/SIM/index.php?operacao=showLogin" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Login</a> 
+    <a href="http://localhost/SIM/index.php?operacao=showRegistry" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Registar</a>-->
+	<?php include 'options.php' ?>
   </div>
 </nav>
 
 <!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
-  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">â˜°</a>
+<header class="w3-container w3-top w3-hide-large w3-light-green w3-xlarge w3-padding">
+  <a href="javascript:void(0)" class="w3-button w3-light-green w3-margin-right" onclick="w3_open()">☰</a>
   <span>LifeStyleFCT</span>
 </header>
 
@@ -134,6 +135,7 @@ body {font-size:16px; background-image: 'home.png'no-repeat center center fixed;
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:340px;margin-right:40px">
+<div class="w3-container" style="margin-top:85px">
 
 <script>
 // Script to open and close sidebar
@@ -156,7 +158,7 @@ function onClick(element) {
 }
 </script>
 
-	<body background="vegetais.jpg">  <!-- estilo do corpo da página -->
+	<body background="vegetais.jpg" align="center">  <!-- estilo do corpo da página -->
 
 		 <!-- hiperligação que acciona a operação "Login" ou "Logout" consoante o valor da variável "authuser"-->
 		 <?php
@@ -253,4 +255,5 @@ function onClick(element) {
 					else include ('home.php');
 					?>				
 	</body>
+	</div>
 </html>

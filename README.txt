@@ -28,3 +28,5 @@ ACTUALIZAÇÕES
 15/12/2017
 Funcionalidades do Assistente, Utente e Investigador acabadas. Falta só o Nutricionista que está relacionado com as cenas do CART
 André	
+
+ATRASADO MAS ACABADO FINALMENTE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
